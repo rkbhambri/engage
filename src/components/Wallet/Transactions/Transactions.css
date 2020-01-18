@@ -1,0 +1,16 @@
+
+#amount {
+    color: #6647B6 !important;
+}
+
+ .transactions .date{
+    color: #808080;
+}
+
+.transactions .entry,.prize{
+    background: #fff;
+    font-weight: 600;
+    color: #696969;
+    font-size: 13px;
+}
+

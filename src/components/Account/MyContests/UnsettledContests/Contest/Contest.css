@@ -1,0 +1,30 @@
+
+.contest-question{
+    background: #fff;
+    border-radius: 1.2em;
+}
+
+.question {
+    color: #6041B0;
+    font-size: 17px;
+    font-weight: bold;
+    line-height:1.4em;
+}
+
+.selected-option {
+    background: #6041B0;
+    border-radius: 1.5em;
+    color: #F7C244;
+    font-size: 17px;
+    font-weight: bold;
+    line-height:1.4em;
+}
+
+.settle-date{ 
+    background: #F7C244;
+    color: #6041B0;
+    border-radius: 1.5em;
+    font-size: 16px;
+    font-weight: bold;
+    line-height:1.4em;
+}

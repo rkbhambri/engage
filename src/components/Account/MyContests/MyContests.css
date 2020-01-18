@@ -1,0 +1,29 @@
+
+.ui.button{
+    background: #6041B0;
+    color: #F7C244;
+    min-height: 4em;
+    font-weight: 800;
+}
+
+.my-contests .ui.header{
+    color: #fff;
+}
+
+.ui.active.button {
+    color: #6041B0;
+    background: #F7C244;
+}
+
+.ui.active.button:hover {
+    color: #6041B0;
+    background: #F7C244;
+}
+
+.ui.buttons .button.active:first-child {
+    border-radius: 1.5em;
+}
+
+.ui.buttons .button.active:last-child {
+    border-radius: 1.5em;
+}

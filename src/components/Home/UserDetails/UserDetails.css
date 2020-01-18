@@ -1,0 +1,29 @@
+
+/* .user-details{
+    border-radius: 15px;
+    background: rgb(49, 54, 72);
+    border-color: #fbbc05; 
+} */
+
+.user-details .details form .ui.input>input{
+    color: #ccc;
+}
+
+.user-details .details form .save-icon{
+    font-size: 1.37em;
+}
+
+.user-details .details{
+    flex-wrap: wrap;
+}
+
+.user-details .details div{
+    font-size: 15px;
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+
+i.icon, i.icons {
+    font-size: 1.2em;
+    color: #ccc;
+}

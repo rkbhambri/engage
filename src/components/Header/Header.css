@@ -1,0 +1,10 @@
+
+.navbar-nav .nav-link {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active{
+    background-color: #36454F;
+    border-radius: 0.6em;
+}

@@ -1,0 +1,14 @@
+
+html, body, #root {
+    height: 100%;
+    background: #181b26;
+}
+
+.active-link {
+    background: #ccc;
+}
+
+.break {
+    padding: 10px;
+    font-size: 25px;
+}

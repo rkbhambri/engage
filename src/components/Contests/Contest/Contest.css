@@ -1,0 +1,32 @@
+
+.contest {
+    background: #fff;
+    border-radius: 1.5em;
+    line-height: 1.4;
+}
+
+.question{ 
+    color:#6647B6;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.details {
+    color: #597381;
+    font-weight: 600;
+}
+
+.contest .icon{ 
+    font-size: 27px;
+    padding-left: 2px;
+    padding-bottom: 4px;
+    color:#6647B6;
+}
+
+.option-wrapper {
+    background: #F7F7F8;
+    border-radius: 1.5em;
+    font-size: 18px;
+    font-weight: 800;
+    color: #597381;
+}

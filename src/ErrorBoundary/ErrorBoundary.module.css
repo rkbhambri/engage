@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+/* Body styling: not relevant */
+body {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  margin:0 auto;
+}
+
+/* The key is in 'display', align-items' and 'justify-content' */
+.wrong-outer {
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 auto;
+}
+
+.wrong-inner {
+  width: 50%;
+  height: auto;
+  color: white;
+  padding: 0px;
+	text-align: center!important;
+	color: black;
+}
+.wrong-inner h2 {
+	color: #221bb9;
+}
+.wrong-inner p {
+	color: #666666;
+	font-size: 20px;
+	padding: 0px 50px;
+	line-height: 36px;
+}
+.wrong-inner .img-went-wrong {
+	max-width: 250px;
+	display: block;
+	margin: 0 auto;
+}
+
+@media only screen and (max-width: 991px) {
+	.wrong-inner {
+		width: 80%;
+	}
+}
