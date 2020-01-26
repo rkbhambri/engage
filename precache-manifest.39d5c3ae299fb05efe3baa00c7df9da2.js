@@ -112,12 +112,12 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/media/medal.27458910.svg"
   },
   {
-    "revision": "cd6c777f1945164224dee082abaea03a",
-    "url": "/virtual-card/static/media/outline-icons.cd6c777f.woff2"
-  },
-  {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "/virtual-card/static/media/outline-icons.ef60a4f6.woff"
+  },
+  {
+    "revision": "cd6c777f1945164224dee082abaea03a",
+    "url": "/virtual-card/static/media/outline-icons.cd6c777f.woff2"
   },
   {
     "revision": "9c74e172f87984c48ddf5c8108cabe67",
