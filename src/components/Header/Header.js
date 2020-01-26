@@ -19,15 +19,15 @@ const Header = (props) => {
                     </NavLink>
                     <NavLink to="/leaders" className="nav-item nav-link p-2">
                         {/* <img src={Img} style={{ width: '30px', height: '30px' }} alt="img removed" /><br /> */}
-                        LEADERS
+                        Engage
                     </NavLink>
                     <NavLink to="/wallet" className="nav-item nav-link p-2">
                         {/* <img src={Img} style={{ width: '30px', height: '30px' }} alt="img removed" /><br /> */}
-                        WALLET
+                        My Cards
                     </NavLink>
                     <NavLink to="/account" className="nav-item nav-link p-2">
                         {/* <img src={Img} style={{ width: '30px', height: '30px' }} alt="img removed" /><br /> */}
-                        ACCOUNT
+                        Received
                     </NavLink>
                 </div>
             </div>

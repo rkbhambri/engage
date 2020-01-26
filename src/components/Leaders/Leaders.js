@@ -6,6 +6,7 @@ import LeaderDetails from './LeaderDetails/LeaderDetails';
 import LeadersData from './LeadersData/LeadersData';
 import NoDataFound from '../NoDataFound/NoDataFound';
 import { isArrayEmpty } from '../../helpers/array';
+import AddSchoolForm from './AddSchoolForm';
 import './Leaders.css';
 
 const Leaders = (props) => {
@@ -13,10 +14,8 @@ const Leaders = (props) => {
         props.onGetLeaders();
     }, []);
     return (
-        <Col className="leaders pt-5">
-            {isArrayEmpty(props.leaders) ? <NoDataFound text="No leadership details found !" /> : <LeaderDetails />}
-            <LeadersData leaders={props.leaders} />
-            <br /><br /><br /><br />
+        <Col className="leaders">
+            <AddSchoolForm />
         </Col>
     );
 };

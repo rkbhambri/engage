@@ -1,0 +1,9 @@
+
+
+.ui.button {
+    /* border-radius: 2em; */
+    border: none;
+    background: #ccc;
+    color: '#313548';
+    /* color: #6541B4; */
+}

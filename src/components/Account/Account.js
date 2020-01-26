@@ -11,7 +11,6 @@ const Account = (props) => {
     return (
         <Col className="account">
             <Header as="h2" className="pt-4 pl-2">Account</Header>
-            <AccountDetails />
             <AccountOptions />
             {/* <MyContests /> */}
             {/* <Referral /> */}
