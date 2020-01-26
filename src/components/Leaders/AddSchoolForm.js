@@ -46,7 +46,7 @@ const AddSchoolForm = (props) => {
                 <div className="user pt-2 pb-2">
                     <Icon name="user" style={{ fontSize: '1.2em', color: '#ccc' }} /> Karam
                 </div>
-            </div>
+            </div><br /><br />
             {/* <WalletDetails walletDetails={props.walletDetails} id="2" /><br />
             <WalletDetails walletDetails={props.walletDetails} id="3" /><br />
             <WalletDetails walletDetails={props.walletDetails} id="4" /><br />
