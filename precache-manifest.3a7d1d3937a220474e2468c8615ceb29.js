@@ -64,32 +64,32 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/js/10.1668f8d0.chunk.js"
   },
   {
-    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
-    "url": "/virtual-card/static/media/brand-icons.c5ebe0b3.ttf"
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/virtual-card/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "affc30e7b4aa3ee883ab",
     "url": "/virtual-card/static/js/11.a94f9304.chunk.js"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/virtual-card/static/media/brand-icons.13db00b7.eot"
+    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
+    "url": "/virtual-card/static/media/brand-icons.c5ebe0b3.ttf"
   },
   {
     "revision": "9788c45eb9fa41280948",
     "url": "/virtual-card/static/js/12.48b5e61c.chunk.js"
   },
   {
-    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
-    "url": "/virtual-card/static/media/icons.b87b9ba5.ttf"
+    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
+    "url": "/virtual-card/static/media/icons.8e3c7f55.eot"
   },
   {
     "revision": "dbe98d787ee3d952c6a5",
     "url": "/virtual-card/static/js/13.2cdc340a.chunk.js"
   },
   {
-    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
-    "url": "/virtual-card/static/media/icons.8e3c7f55.eot"
+    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
+    "url": "/virtual-card/static/media/icons.b87b9ba5.ttf"
   },
   {
     "revision": "94b1a649c4c24375b4b3",
