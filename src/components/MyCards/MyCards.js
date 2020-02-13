@@ -16,7 +16,7 @@ const MyCards = (props) => {
     return (
         <Col className="my-cards pt-4">
             <Row className="mb-3">
-                <Col xs={4}>
+                <Col xs={8}>
                     <h3 className="text-white pl-1">My Cards</h3>
                 </Col>
                 <Col className="add-icon text-right">
