@@ -1,8 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Img from '../../assets/img/medal.svg';
-import { isMobileView } from '../../helpers/miscellaneous';
-
 import './Header.css';
 
 const Header = (props) => {
@@ -17,15 +14,15 @@ const Header = (props) => {
                         {/* <img src={Img} style={{ width: '30px', height: '30px' }} alt="img removed" /><br /> */}
                         Home
                     </NavLink>
-                    <NavLink to="/leaders" className="nav-item nav-link p-2">
+                    <NavLink to="/engage" className="nav-item nav-link p-2">
                         {/* <img src={Img} style={{ width: '30px', height: '30px' }} alt="img removed" /><br /> */}
                         Engage
                     </NavLink>
-                    <NavLink to="/wallet" className="nav-item nav-link p-2">
+                    <NavLink to="/my-cards" className="nav-item nav-link p-2">
                         {/* <img src={Img} style={{ width: '30px', height: '30px' }} alt="img removed" /><br /> */}
                         My Cards
                     </NavLink>
-                    <NavLink to="/account" className="nav-item nav-link p-2">
+                    <NavLink to="/received-cards" className="nav-item nav-link p-2">
                         {/* <img src={Img} style={{ width: '30px', height: '30px' }} alt="img removed" /><br /> */}
                         Received
                     </NavLink>

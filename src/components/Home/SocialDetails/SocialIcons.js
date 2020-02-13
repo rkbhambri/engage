@@ -1,11 +1,7 @@
 import React from 'react';
-import { Col } from 'reactstrap';
-import { Icon, Header, Button, Popup, Grid, Input } from 'semantic-ui-react'
-// import './socialIcons.css';
+import { Icon, Popup, Grid, Input } from 'semantic-ui-react'
 
 const SocialIcons = (props) => {
-
-
     return (
         <Popup
             key={props.name}

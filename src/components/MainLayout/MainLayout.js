@@ -1,45 +1,10 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
-import NotificationSystem from 'react-notification-system';
-import { NOTIFICATION_SYSTEM_STYLE } from '../../utils/constants';
 import Snackbar from '../Snackbar/Snackbar';
-import {
-    MdCardGiftcard,
-    MdLoyalty,
-} from 'react-icons/md';
 import { isMobileView } from '../../helpers/miscellaneous';
 
 const MainLayout = (props) => {
     const [isOnline, setOnlineStatus] = useState(null);
-    let notificationSystem = null;
-
-    const showPromptMessage = () => {
-        setTimeout(() => {
-            if (!notificationSystem) {
-                return;
-            }
-
-            notificationSystem.addNotification({
-                title: <MdLoyalty />,
-                message: 'Welome to Jeet!',
-                level: 'info',
-            });
-        }, 1500);
-
-        setTimeout(() => {
-            if (!notificationSystem) {
-                return;
-            }
-
-            notificationSystem.addNotification({
-                title: <MdCardGiftcard />,
-                message:
-                    'Betting app !',
-                level: 'info',
-            });
-        }, 2500);
-        // this.props.onEmptyToken();
-    };
 
     const updateOnlineStatus = () => {
         setOnlineStatus(navigator.onLine);
@@ -87,12 +52,7 @@ const MainLayout = (props) => {
                         {props.children}
                     </>
             }
-            <NotificationSystem
-                dismissible={false}
-                ref={input => notificationSystem = input}
-                style={NOTIFICATION_SYSTEM_STYLE}
-            />
-            {/* Check Internet Connection */}
+            ''            {/* Check Internet Connection */}
             {checkInternetConnection()}
         </div>
     );

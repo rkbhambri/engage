@@ -1,13 +1,8 @@
-// Importing Dependencies
 import React from 'react';
-// import Login from './pages/Login/Login';
 const Login = React.lazy(() => import('./components/Login/Login'));
-const Contests = React.lazy(() => import('./components/Contests/Contests'));
-const Leaders = React.lazy(() => import('./components/Leaders/Leaders'));
-const Wallet = React.lazy(() => import('./components/Wallet/Wallet'));
-const Account = React.lazy(() => import('./components/Account/Account'));
-const Referral = React.lazy(() => import('./components/Account/Referral/Referral'));
-const MyContests = React.lazy(() => import('./components/Account/MyContests/MyContests'));
+const Engage = React.lazy(() => import('./components/Engage/Engage'));
+const MyCards = React.lazy(() => import('./components/MyCards/MyCards'));
+const ReceivedCards = React.lazy(() => import('./components/ReceivedCards/ReceivedCards'));
 const Home = React.lazy(() => import('./components/Home/Home'));
 
 export const unauthenticated_routes = [
@@ -23,28 +18,16 @@ export const authenticated_routes = [
         component: Home
     },
     {
-        path: '/contests',
-        component: Contests
+        path: '/engage',
+        component: Engage
     },
     {
-        path: '/leaders',
-        component: Leaders
+        path: '/my-cards',
+        component: MyCards
     },
     {
-        path: '/wallet',
-        component: Wallet
-    },
-    {
-        path: '/account',
-        component: Account
-    },
-    {
-        path: '/referral',
-        component: Referral
-    },
-    {
-        path: '/my-contests',
-        component: MyContests
+        path: '/received-cards',
+        component: ReceivedCards
     }
 ];
 

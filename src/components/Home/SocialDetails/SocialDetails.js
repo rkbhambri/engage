@@ -2,16 +2,8 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 import './SocialDetails.css';
 import SocialIcons from './SocialIcons';
+
 const SocialDetails = (props) => {
-    const arr = [
-        { name: 'facebook', leftAlign: '50px' },
-        { name: 'twitter', leftAlign: '100px' },
-        { name: 'linkedin', leftAlign: '300px' },
-        { name: 'instagram', leftAlign: '400px' },
-        { name: 'youtube', leftAlign: '500px' },
-        { name: 'tint', leftAlign: '600px' },
-        { name: 'tag', leftAlign: '700px' },
-        { name: 'tv', leftAlign: '800px' }];
 
     // const socialIcons = arr.map(item => {
     //     return (
