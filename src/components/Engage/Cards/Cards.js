@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Col, } from 'reactstrap';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
+import { Col } from 'reactstrap';
 import { GoBroadcast } from 'react-icons/go';
 import { Icon, Divider, Input, Radio, Button } from 'semantic-ui-react';
 import './Cards.css';
