@@ -112,7 +112,7 @@ const Cards = (props) => {
         <ScrollMenu
             data={cards}
             alignOnResize={true}
-            itemStyle={{ width: '300px' }}
+            itemStyle={{ width: '300px', marginRight: '10px', transition: 'transform 0.4s ease-out 0s' }}
         // item
         // arrowLeft={ArrowLeft}
         // arrowRight={ArrowRight}
