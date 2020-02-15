@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/js/main.ff2c6620.chunk.js"
   },
   {
-    "revision": "05385cbfaf3791139478",
-    "url": "/virtual-card/static/js/runtime~main.077f05e7.js"
+    "revision": "146892f5a04392879cd1",
+    "url": "/virtual-card/static/js/runtime~main.c8770014.js"
   },
   {
     "revision": "7a21cbe90fd31540fb0384792fbc4a86",
@@ -48,8 +48,8 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/media/icons.962a1bf3.svg"
   },
   {
-    "revision": "d7314d48d40af0551645",
-    "url": "/virtual-card/static/js/8.7dc6d193.chunk.js"
+    "revision": "c1b59b77c57b4d570405",
+    "url": "/virtual-card/static/js/8.9b3e8f22.chunk.js"
   },
   {
     "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
@@ -68,8 +68,8 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/js/10.77cf8bd4.chunk.js"
   },
   {
-    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
-    "url": "/virtual-card/static/media/icons.b87b9ba5.ttf"
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/virtual-card/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "64e2aa2172666a5d3279",
@@ -84,12 +84,12 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/js/1.5374a6db.chunk.js"
   },
   {
-    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
-    "url": "/virtual-card/static/media/outline-icons.ef60a4f6.woff"
-  },
-  {
     "revision": "cd6c777f1945164224dee082abaea03a",
     "url": "/virtual-card/static/media/outline-icons.cd6c777f.woff2"
+  },
+  {
+    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
+    "url": "/virtual-card/static/media/outline-icons.ef60a4f6.woff"
   },
   {
     "revision": "9c74e172f87984c48ddf5c8108cabe67",
@@ -124,8 +124,8 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/media/icons.8e3c7f55.eot"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/virtual-card/static/media/brand-icons.13db00b7.eot"
+    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
+    "url": "/virtual-card/static/media/icons.b87b9ba5.ttf"
   },
   {
     "revision": "cd4898da537971f79b7e",
@@ -136,7 +136,7 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/css/9.e8b861fb.chunk.css"
   },
   {
-    "revision": "d7314d48d40af0551645",
+    "revision": "c1b59b77c57b4d570405",
     "url": "/virtual-card/static/css/8.c43f8992.chunk.css"
   },
   {
@@ -156,7 +156,7 @@ self.__precacheManifest = [
     "url": "/virtual-card/static/css/10.506daef8.chunk.css"
   },
   {
-    "revision": "6116be2281cedf80865336abcd82a832",
+    "revision": "76b63ec7aedca9b838cc0723daa6d152",
     "url": "/virtual-card/index.html"
   }
 ];
