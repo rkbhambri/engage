@@ -17,3 +17,13 @@
     background: #ccc;
 }
 
+.react-multi-carousel-item{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+
+.react-multiple-carousel__arrow:hover,.react-multiple-carousel__arrow--left,.react-multiple-carousel__arrow--right{
+    background: transparent;
+    outline: none;
+}

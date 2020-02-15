@@ -19,7 +19,7 @@ const Engage = (props) => {
         <Col className="engage">
             <br />
             {!direct && <Cards />}
-            <br />
+            <br /><br />
             {!direct && <h2 className="text-center">Lets Engage !</h2>}<br />
             <Col className="direct mt-3 text-center">
                 <Icon name="exchange" onClick={() => toggleDirect(prevState => !prevState)} style={{ fontSize: '4em', color: '#ccc' }} />

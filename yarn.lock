@@ -9292,6 +9292,11 @@ react-masonry-component@^6.2.1:
     masonry-layout "^4.2.0"
     prop-types "^15.5.8"
 
+react-multi-carousel@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-2.5.2.tgz#da6c0d68b9f264e56e63386cbbe66e174b13e4c4"
+  integrity sha512-dGDNAA1MmLZV+nvxvF8T2GlQnvv726jBdC/hLT7GD44PaL1ONE5nkKPrS/SeYvf5TLVxCUYzRyY7BMpUuQtXpw==
+
 react-notification-system@^0.2.17:
   version "0.2.17"
   resolved "https://registry.yarnpkg.com/react-notification-system/-/react-notification-system-0.2.17.tgz#a60eddbb62225ad8f9fc5d7837546bf6cdb36818"

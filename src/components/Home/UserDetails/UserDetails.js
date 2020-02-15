@@ -27,7 +27,7 @@ const UserDetails = (props) => {
                     src={UserImg}
                     alt="Profile Pic"
                     style={{
-                        width: '60px', height: '60px'
+                        width: '70px', height: '70px'
                     }} />
                 <Col className="details" md={10} xs={10}>
                     {
@@ -36,8 +36,17 @@ const UserDetails = (props) => {
                                 <Input
                                     type="text"
                                     transparent
-                                    placeholder="Email"
+                                    placeholder="Name"
                                     className="border-bottom"
+                                    style={{ color: '#fff' }}
+                                // onChange={(event) => setMoney(event.target.value)}
+                                // value={moneyValue}
+                                />
+                                <Input
+                                    type="email"
+                                    transparent
+                                    placeholder="Email"
+                                    className="border-bottom mt-3"
                                     style={{ color: '#fff' }}
                                 // onChange={(event) => setMoney(event.target.value)}
                                 // value={moneyValue}
@@ -58,7 +67,8 @@ const UserDetails = (props) => {
                             </Form>
                             :
                             <>
-                                <div className="mt-1">ramkrishan@gmail.com</div>
+                                <div>Ram krishan</div>
+                                <div className="mt-2">ramkrishan@gmail.com</div>
                                 <div className="mt-2">+91-8146698440</div>
                             </>
                     }

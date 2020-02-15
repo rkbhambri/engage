@@ -24,6 +24,7 @@
         "react-infinite-scroller": "^1.2.4",
         "react-localization": "^1.0.15",
         "react-masonry-component": "^6.2.1",
+        "react-multi-carousel": "^2.5.2",
         "react-notification-system": "^0.2.17",
         "react-papaparse": "^1.0.5",
         "react-redux": "^7.1.0",
