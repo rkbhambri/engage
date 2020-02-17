@@ -6,6 +6,7 @@ import SocialDetails from './SocialDetails/SocialDetails';
 import './Home.css';
 
 const Home = (props) => {
+    console.log('====check====');
     return (
         <div className="home">
             <div className="home-data pt-4">
