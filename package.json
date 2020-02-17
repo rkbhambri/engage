@@ -1,7 +1,7 @@
 {
-    "name": "trueblue-admin",
+    "name": "engage",
     "version": "1.1.0",
-    "homepage": "https://rkbhambri.github.io/Engage/",
+    "homepage": "https://rkbhambri.github.io/engage/",
     "private": false,
     "dependencies": {
         "add": "^2.0.6",
