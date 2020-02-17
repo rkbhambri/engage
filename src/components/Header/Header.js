@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 const Header = (props) => {
-
     return (
         <nav
             className={`navbar navbar-expand-md navbar-dark fixed-bottom`}

@@ -43,16 +43,16 @@ const MainLayout = (props) => {
             {
                 isMobileView() ?
                     <>
-                        {props.children}
+                        {props.children}<br /><br /><br />
                         <Header />
                     </>
                     :
                     <>
-                        <Header /><br /><br /><br />
+                        <Header />
                         {props.children}
                     </>
             }
-            ''            {/* Check Internet Connection */}
+            {/* Check Internet Connection */}
             {checkInternetConnection()}
         </div>
     );
