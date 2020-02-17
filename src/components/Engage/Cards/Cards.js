@@ -49,7 +49,7 @@ const Cards = (props) => {
             {
                 [1, 2, 3, 4].map(item => {
                     return (
-                        <Col className="cards" style={{ borderRadius: '15px' }} onClick={() => editCardDetails(props.id)}>
+                        <Col className="cards" key={item} style={{ borderRadius: '15px' }} onClick={() => editCardDetails(props.id)}>
                             <Col className="text-right mb-4">
                                 <GoBroadcast className="mt-3" style={{ fontSize: '28px' }} />
                                 <div className="text-center">
