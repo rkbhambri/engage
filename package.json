@@ -1,7 +1,7 @@
 {
     "name": "trueblue-admin",
     "version": "1.1.0",
-    "homepage": "https://rkbhambri.github.io/virtual-card/",
+    "homepage": "https://rkbhambri.github.io/Engage/",
     "private": false,
     "dependencies": {
         "add": "^2.0.6",
