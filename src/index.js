@@ -11,9 +11,9 @@ import Contests from './store/reducers/Contests';
 import Leaders from './store/reducers/Leaders';
 import Wallet from './store/reducers/Wallet';
 import Account from './store/reducers/Account';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css';
+import './index.css';
 
 const getBasename = () => {
     return `/${process.env.PUBLIC_URL.split('/').pop()}`;

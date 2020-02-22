@@ -12,3 +12,11 @@ html, body, #root {
     padding: 10px;
     font-size: 25px;
 }
+
+.modal {
+    height:auto;
+    top:auto;
+    left:auto;
+    bottom:auto;
+    right:auto;
+}
