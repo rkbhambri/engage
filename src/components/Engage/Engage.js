@@ -16,7 +16,7 @@ const Engage = (props) => {
     }, []);
 
     return (
-        <Col className="engage">
+        <div className="engage">
             <br />
             {!direct && <Cards />}
             <br /><br />
@@ -25,8 +25,8 @@ const Engage = (props) => {
                 <Icon name="exchange" onClick={() => toggleDirect(prevState => !prevState)} style={{ fontSize: '4em', color: '#ccc' }} />
             </Col>
             {direct && <Users />}
-            <br /><br /><br /><br />
-        </Col>
+            {/* <br /><br /><br /><br /> */}
+        </div>
     );
 };
 

@@ -1,9 +1,31 @@
 
+.users-around {
+    background-color: #dfdfdf;
+    height: 85%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.users-around h3 {
+    color: #393638;
+}
+
+.users-around span {
+    font-size: 13px;
+    color: #393638;
+}
+
 .users-around .user .user-icon{
     font-size: 18px;
-    color: #ccc;
+    color: #393638;
 }
 
 .users-around .user .name {
     font-size: 18px;
+}
+
+.users-around .meetup-share .ui.button {
+    background: #393638;
+    color: #dfdfdf;
+    border-radius: 30px;
+    padding: 0.7em 1.5em;
 }
