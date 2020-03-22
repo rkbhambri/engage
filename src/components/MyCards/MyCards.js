@@ -9,7 +9,7 @@ import './MyCards.css';
 
 const MyCards = (props) => {
 
-    const [isAddCardModalOpen, setAddCardModalOpen] = useState(true);
+    const [isAddCardModalOpen, setAddCardModalOpen] = useState(false);
 
     const toggleAddCardModal = () => {
         setAddCardModalOpen(prevState => !prevState);

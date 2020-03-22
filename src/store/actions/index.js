@@ -32,3 +32,7 @@ export {
 export {
     setSnackbarMessage
 } from './MainLayout';
+
+export {
+    addCard
+} from './MyCards';

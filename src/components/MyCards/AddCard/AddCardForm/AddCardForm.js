@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { Form, Button, Image, Select, Icon } from 'semantic-ui-react';
+import * as actionCreaters from '../../../../store/actions';
 import { parseData, isEmpty } from '../../../../helpers/miscellaneous';
 import { messages } from '../../../../helpers/messages';
 import { isObjectEmpty } from '../../../../helpers/Object';
@@ -61,7 +62,7 @@ const AddCardForm = (props) => {
         setCardDetails(card);
     };
 
-    const createSchool = () => {
+    const addCard = () => {
         const invalidInputDetails = parseData(invalidInput);
 
         if (isEmpty(cardDetails.name)) {
@@ -75,14 +76,13 @@ const AddCardForm = (props) => {
         if (isObjectEmpty(invalidInputDetails)) {
             console.log('kgsagku==', cardDetails)
             props.toggleAddCardModal();
-            // props.onCreateSchool(cardDetails);
+            props.onAddCard(cardDetails);
         }
     };
 
     return (
-        <Form onSubmit={() => createSchool()}>
-            <br />
-            <div className="mt-4 d-flex">
+        <Form>
+            <div className="d-flex">
                 <div className="profile-pic">
                     <Image
                         style={{ height: '50px', width: '50px' }}
@@ -128,14 +128,14 @@ const AddCardForm = (props) => {
                                 className={cardDetails.facebookUrl ? 'text-success' : ''}
                                 onClick={() => selectSocialLink('facebookUrl')} />
                         </Col>
-                        <Col className="offset-1">
+                        <Col>
                             <Icon
                                 size="huge"
                                 name="instagram"
                                 className={cardDetails.instagramUrl ? 'text-success' : ''}
                                 onClick={() => selectSocialLink('instagramUrl')} />
                         </Col>
-                        <Col className="offset-1">
+                        <Col>
                             <Icon
                                 size="huge"
                                 name="linkedin"
@@ -164,7 +164,7 @@ const AddCardForm = (props) => {
                 </div>
             </div>
             <div className="text-right mt-4">
-                <Button type="submit">Add</Button>
+                <Button onClick={() => addCard()}>Add</Button>
             </div>
         </Form>
     );
@@ -176,10 +176,10 @@ const AddCardForm = (props) => {
 //     };
 // };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onCreateSchool: (cardDetails) => dispatch(actionCreaters.createSchool(cardDetails))
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddCard: (cardDetails) => dispatch(actionCreaters.addCard(cardDetails))
+    };
+};
 
-export default connect(null, null)(AddCardForm);
+export default connect(null, mapDispatchToProps)(AddCardForm);
