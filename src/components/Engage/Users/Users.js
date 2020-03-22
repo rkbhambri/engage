@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Icon, Button } from 'semantic-ui-react';
 import { Col } from 'reactstrap';
 import ShareCard from '../ShareCard/ShareCard';
+import './Users.css';
 
 const Users = (props) => {
     const [users] = useState(['Ram krishan', 'Karamjit', 'Shubham', 'Arpan', 'Paras'])
@@ -23,20 +24,23 @@ const Users = (props) => {
                 isMeetupMode={isMeetupMode}
                 shareWith={shareWith}
                 cardName={'Travel Card'} />
-            <h2>Around you</h2>
+            <h2 className="text-center">Around you</h2>
             <div className="meetup-share text-center">
                 <Button size="small" onClick={() => toggleShareModalOpen(true, 'everyone')}>Meetup Share</Button>
             </div><br />
             {
                 users.map(item => {
                     return (
-                        <div className="user pt-2 pb-2" key={item}>
-                            <Icon name="user" style={{ fontSize: '1.2em', color: '#ccc' }} /> {item}
+                        <Col className="user d-flex justify-content-between mt-2 pt-2 pb-2 offset-2" xs={8} key={item}>
+                            <div className="as">
+                                <span><Icon name="user" className="user-icon" /></span>
+                                <span className="name" >{item}</span>
+                            </div>
                             &nbsp;<Icon
                                 name="external share"
                                 style={{ fontSize: '1.2em', color: '#ccc' }}
                                 onClick={() => toggleShareModalOpen(false, item)} />
-                        </div>
+                        </Col>
                     );
                 })
             }

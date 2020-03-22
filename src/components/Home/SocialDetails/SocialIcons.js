@@ -9,7 +9,8 @@ const SocialIcons = (props) => {
                 <Icon
                     circular={true}
                     style={{ fontSize: '40px' }}
-                    name={props.name}></Icon>}
+                    name={props.name}
+                    className={props.className}></Icon>}
             flowing
             hoverable>
             <Grid.Column textAlign='center'>

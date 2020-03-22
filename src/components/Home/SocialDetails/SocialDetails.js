@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'reactstrap';
+import { Col } from 'reactstrap';
 import './SocialDetails.css';
 import SocialIcons from './SocialIcons';
 
@@ -34,40 +34,26 @@ const SocialDetails = (props) => {
 
     return (
         <Col className="social-details pt-4" xs={12}>
-            <Row>
-                <Col className="text-right" xs={8}>
-                    <SocialIcons name="facebook" />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="text-right" xs={5}>
-                    <SocialIcons name="linkedin" />
-                </Col>
-                <Col className="text-right" xs={6}>
-                    <SocialIcons name="tint" />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="text-right" xs={3}>
-                    <SocialIcons name="instagram" />
-                </Col>
-                <Col className="text-right" xs={5}>
-                    <SocialIcons name="instagram" />
-                </Col>
-                <Col className="text-right" xs={4}>
-                    <SocialIcons name="tv" />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="text-right" xs={6}>
-                    <SocialIcons name="linkedin" />
-                </Col>
-                <Col className="text-right" xs={5}>
-                    <SocialIcons name="tint" />
-                </Col>
-            </Row>
-            <Col className="text-right" xs={9}>
-                <SocialIcons name="youtube" />
+            <Col className="text-center">
+                <SocialIcons name="facebook" />
+            </Col>
+            <Col className="d-flex justify-content-around">
+                <SocialIcons name="linkedin" className="text-success" />
+                {/* <SocialIcons name="instagram" /> */}
+                <SocialIcons name="linkedin" />
+            </Col>
+            <Col className="d-flex justify-content-between">
+                <SocialIcons name="instagram" />
+                <SocialIcons name="tv" />
+                <SocialIcons name="linkedin" className="text-success" />
+            </Col>
+            <Col className="d-flex justify-content-around">
+                <SocialIcons name="tint" className="text-success" />
+                <SocialIcons name="linkedin" />
+                {/* <SocialIcons name="youtube" /> */}
+            </Col>
+            <Col className="text-center">
+                <SocialIcons name="facebook" />
             </Col>
         </Col>
     );
