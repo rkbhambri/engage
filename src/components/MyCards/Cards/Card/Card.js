@@ -4,18 +4,32 @@ import { GoBroadcast } from 'react-icons/go';
 import { Icon, Divider, Input, Radio, Button } from 'semantic-ui-react';
 import './Card.css';
 import Profile_pic from '../../../../assets/img/user.svg';
+import Card1 from '../../../../assets/Cards/Card-1.jpg';
+import Card2 from '../../../../assets/Cards/Card-2.jpg';
+import Card3 from '../../../../assets/Cards/Card-3.jpg';
+import Card4 from '../../../../assets/Cards/Card-4.jpg';
+import Card5 from '../../../../assets/Cards/Card-5.jpg';
+import Card6 from '../../../../assets/Cards/Card-6.jpg';
 
 const Card = (props) => {
 
     const [editCardId, setEditcardId] = useState(false);
+    const [cards] = useState({
+        1: Card1,
+        2: Card2,
+        3: Card3,
+        4: Card4,
+        5: Card5,
+        6: Card6
+    });
 
     const editCardDetails = (id) => {
         setEditcardId(prevState => !prevState);
     };
 
     return (
-        <div className="card mt-4" style={{ borderRadius: '15px' }} onClick={() => editCardDetails(props.id)}>
-            <Col className="text-right mb-4">
+        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[props.id]})` }} onClick={() => editCardDetails(props.id)}>
+            <Col className="text-right mb-2">
                 <GoBroadcast className="mt-3" style={{ fontSize: '28px' }} />
                 <div className="text-center">
                     <div className="profile-pic">

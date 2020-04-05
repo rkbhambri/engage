@@ -8,7 +8,8 @@ const Cards = (props) => {
             <Card walletDetails={props.walletDetails} id="2" />
             <Card walletDetails={props.walletDetails} id="3" />
             <Card walletDetails={props.walletDetails} id="4" />
-            <Card walletDetails={props.walletDetails} />
+            <Card walletDetails={props.walletDetails} id="5" />
+            <Card walletDetails={props.walletDetails} id="6" />
         </div>
     );
 };

@@ -29,7 +29,7 @@ const Engage = (props) => {
                 </Col>
             }
             <br /><br />
-            <Col className="direct mt-3 text-center">
+            <Col className="direct mt-2 text-center">
                 <img
                     src={direct ? BroadcastIcon : EngazeIcon}
                     className="toggle-icon"

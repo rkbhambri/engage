@@ -56,7 +56,7 @@ const Cards = (props) => {
         <Carousel
             swipeable={true}
             draggable={true}
-            arrows={false}
+            arrows={true}
             responsive={responsive}
             partialVisbile={true}
             ssr={true} // means to render carousel on server-side.
@@ -65,7 +65,7 @@ const Cards = (props) => {
             autoPlaySpeed={1000}
             keyBoardControl={true}
             transitionDuration={500}
-            containerClass="carousel-container"
+            containerClass="carousel-container p-4"
             deviceType="mobile">
             {
                 [1, 2, 3, 4, 5, 6].map(item => {

@@ -1,6 +1,7 @@
 
 .my-cards {
     color: #ccc;
+    background: #181b26;
 }
 
 .my-cards .add-icon .ui.icon.button>.icon, .ui.icon.buttons .button>.icon {

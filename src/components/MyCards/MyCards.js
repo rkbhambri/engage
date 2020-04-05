@@ -21,7 +21,7 @@ const MyCards = (props) => {
     }, []);
 
     return (
-        <Col className="my-cards pt-4">
+        <Col className="my-cards pt-4 pb-5">
             <AddCard
                 isAddCardModalOpen={isAddCardModalOpen}
                 toggleAddCardModal={() => toggleAddCardModal()} />
@@ -38,7 +38,7 @@ const MyCards = (props) => {
                 </Col>
             </Row>
             <Cards />
-            <br /><br /><br /><br />
+
 
             {/* <Transactions transactions={props.transactions} /> */}
         </Col>
