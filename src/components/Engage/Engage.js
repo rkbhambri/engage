@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Col } from 'reactstrap';
-import { Icon } from 'semantic-ui-react';
 import * as actionCreaters from '../../store/actions';
+import EngazeIcon from '../../assets/Icons/engaze.svg';
+import BroadcastIcon from '../../assets/Icons/broadcast.svg';
 import Cards from './Cards/Cards';
-import Users from './Users/Users';
+import Card4 from '../../assets/Cards/Card-4.jpg';
+import UsersAround from './UsersAround/UsersAround';
+import Loading from './Loading/Loading'
 import './Engage.css';
 
 const Engage = (props) => {
 
-    const [direct, toggleDirect] = useState(true);
+    const [direct, toggleDirect] = useState(false);
 
     useEffect(() => {
         // props.onGetLeaders();
@@ -19,13 +22,24 @@ const Engage = (props) => {
         <div className="engage">
             <br />
             {!direct && <Cards />}
+            {
+                direct &&
+                <Col className="asas">
+                    <p style={{ borderRadius: '15px', height: '150px', backgroundImage: `url(${Card4})`, backgroundSize: 'cover' }}></p>
+                </Col>
+            }
             <br /><br />
-            {!direct && <h2 className="text-center">Lets Engage !</h2>}<br />
             <Col className="direct mt-3 text-center">
-                <Icon name="exchange" onClick={() => toggleDirect(prevState => !prevState)} style={{ fontSize: '4em', color: '#ccc' }} />
+                <img
+                    src={direct ? BroadcastIcon : EngazeIcon}
+                    className="toggle-icon"
+                    alt="Engaze"
+                    onClick={() => toggleDirect(prevState => !prevState)}
+                />
             </Col>
-            {direct && <Users />}
-            {/* <br /><br /><br /><br /> */}
+            {direct && <Loading />}
+            {!direct && <p className="text-center">Press this button to connect with people nearby</p>}
+            <UsersAround direct={direct} />
         </div>
     );
 };

@@ -3,6 +3,7 @@ import { Col, Row } from 'reactstrap';
 import { Icon } from 'semantic-ui-react';
 import UserDetails from './UserDetails/UserDetails';
 import SocialDetails from './SocialDetails/SocialDetails';
+// import Location from './Location/Location';
 import './Home.css';
 
 const Home = (props) => {
@@ -22,6 +23,7 @@ const Home = (props) => {
                 <UserDetails />
             </div>
             <SocialDetails />
+            {/* <Location /> */}
         </div>
     );
 };

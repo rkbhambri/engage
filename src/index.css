@@ -1,6 +1,9 @@
 
 html, body, #root,.main-layout {
     height: 100%;
+}
+
+.main-layout{
     background: #181b26;
 }
 

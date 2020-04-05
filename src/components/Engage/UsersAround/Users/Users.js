@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Icon, Button } from 'semantic-ui-react';
 import { Col } from 'reactstrap';
-import ShareCard from '../ShareCard/ShareCard';
+import ShareCard from '../../ShareCard/ShareCard';
 import './Users.css';
 
 const Users = (props) => {

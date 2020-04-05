@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { Icon, Divider, Input, Radio, Button } from 'semantic-ui-react';
 import { Col } from 'reactstrap';
 import { GoBroadcast } from 'react-icons/go';
-import { Icon, Divider, Input, Radio, Button } from 'semantic-ui-react';
-import './Cards.css';
+import "react-multi-carousel/lib/styles.css";
 import Profile_pic from '../../../assets/img/user.svg';
+import Card1 from '../../../assets/Cards/Card-1.jpg';
+import Card2 from '../../../assets/Cards/Card-2.jpg';
+import Card3 from '../../../assets/Cards/Card-3.jpg';
+import Card4 from '../../../assets/Cards/Card-4.jpg';
+import Card5 from '../../../assets/Cards/Card-5.jpg';
+import Card6 from '../../../assets/Cards/Card-6.jpg';
+
+
+import './Cards.css';
 
 const Cards = (props) => {
     const [editCardId, setEditcardId] = useState(false);
+    const [cards] = useState({
+        1: Card1,
+        2: Card2,
+        3: Card3,
+        4: Card4,
+        5: Card5,
+        6: Card6
+    });
+
 
     const editCardDetails = (id) => {
         setEditcardId(prevState => !prevState);
@@ -18,26 +35,30 @@ const Cards = (props) => {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
             items: 3,
-            slidesToSlide: 3, // optional, default to 1.
+            slidesToSlide: 3,
+            partialVisibilityGutter: 40  // optional, default to 1.
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
             items: 2,
-            slidesToSlide: 2, // optional, default to 1.
+            slidesToSlide: 2,
+            partialVisibilityGutter: 30 // optional, default to 1.
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1,
-            slidesToSlide: 1, // optional, default to 1.
-        },
+            slidesToSlide: 1,
+            partialVisibilityGutter: 50 // optional, default to 1.
+        }
     };
 
     return (
         <Carousel
             swipeable={true}
             draggable={true}
-            arrows={true}
+            arrows={false}
             responsive={responsive}
+            partialVisbile={true}
             ssr={true} // means to render carousel on server-side.
             infinite={true}
             focusOnSelect={true}
@@ -47,9 +68,9 @@ const Cards = (props) => {
             containerClass="carousel-container"
             deviceType="mobile">
             {
-                [1, 2, 3, 4].map(item => {
+                [1, 2, 3, 4, 5, 6].map(item => {
                     return (
-                        <Col className="cards" key={item} style={{ borderRadius: '15px' }} onClick={() => editCardDetails(props.id)}>
+                        <Col className="cards" key={item} style={{ borderRadius: '15px', backgroundImage: `url(${cards[item]})` }} onClick={() => editCardDetails(props.id)}>
                             <Col className="text-right mb-4">
                                 <GoBroadcast className="mt-3" style={{ fontSize: '28px' }} />
                                 <div className="text-center">
@@ -78,66 +99,6 @@ const Cards = (props) => {
                                     </Divider>
                                 </div>
                             </Col>
-                            {
-                                editCardId &&
-                                <div className="p-2">
-                                    <div className="d-flex" style={{ justifyContent: 'space-between' }}>
-                                        <Icon name="facebook official" style={{ fontSize: '28px' }} />
-                                        <Input
-                                            type="text"
-                                            transparent
-                                            placeholder="Enter here"
-                                            className="border"
-                                            style={{ color: '#fff', borderRadius: '7px' }}
-                                        // onChange={(event) => setMoney(event.target.value)}
-                                        // value="parasbhambri.2@facebook.com"
-                                        />
-                                        <Radio toggle />
-                                    </div>
-                                    <div className="d-flex mt-4" style={{ justifyContent: 'space-between' }}>
-                                        <Icon name="instagram" style={{ fontSize: '28px' }} />
-                                        <Input
-                                            type="text"
-                                            transparent
-                                            placeholder="Enter here"
-                                            className="border"
-                                            style={{ color: '#fff', borderRadius: '7px' }}
-                                        // onChange={(event) => setMoney(event.target.value)}
-                                        // value={moneyValue}
-                                        />
-                                        <Radio toggle />
-                                    </div>
-                                    <div className="d-flex mt-4" style={{ justifyContent: 'space-between' }}>
-                                        <Icon name="youtube" style={{ fontSize: '28px' }} />
-                                        <Input
-                                            type="text"
-                                            transparent
-                                            placeholder="Enter here"
-                                            className="border"
-                                            style={{ color: '#fff', borderRadius: '7px' }}
-                                        // onChange={(event) => setMoney(event.target.value)}
-                                        // value={moneyValue}
-                                        />
-                                        <Radio toggle />
-                                    </div>
-                                    <div className="d-flex mt-4" style={{ justifyContent: 'space-between' }}>
-                                        <Icon name="github" style={{ fontSize: '28px' }} />
-                                        <Input
-                                            type="text"
-                                            transparent
-                                            placeholder="Enter here"
-                                            className="border"
-                                            style={{ color: '#fff', borderRadius: '7px' }}
-                                        // onChange={(event) => setMoney(event.target.value)}
-                                        // value={moneyValue}
-                                        />
-                                        <Radio toggle />
-                                    </div>
-                                    <div className="text-center mt-4">
-                                        <Button className="pl-4 pr-4" size="tiny" icon="check" style={{ color: 'green', borderRadius: '8px' }} />
-                                    </div>
-                                </div>
-                            }
                         </Col>
                     )
                 })

@@ -1,7 +1,16 @@
 import React from 'react';
 import { Col } from 'reactstrap';
-import './SocialDetails.css';
+import Behance from '../../../assets/social-icons/Behance.svg';
+import Dribble from '../../../assets/social-icons/Dribble.svg';
+import Facebook from '../../../assets/social-icons/Facebook.svg';
+import Instagram from '../../../assets/social-icons/Instagram.svg';
+import Linkedin from '../../../assets/social-icons/Linkedin.svg';
+import Pinterest from '../../../assets/social-icons/Pinterest.svg';
+import Twitter from '../../../assets/social-icons/Twitter.svg';
+import Youtube from '../../../assets/social-icons/Youtube.svg';
+
 import SocialIcons from './SocialIcons';
+import './SocialDetails.css';
 
 const SocialDetails = (props) => {
 
@@ -34,26 +43,19 @@ const SocialDetails = (props) => {
 
     return (
         <Col className="social-details pt-4" xs={12}>
-            <Col className="text-center">
-                <SocialIcons name="facebook" />
+            <Col className="d-flex mt-4 justify-content-between p-3" >
+                <SocialIcons src={Dribble} />
+                <SocialIcons src={Facebook} />
+                <SocialIcons src={Linkedin} />
             </Col>
-            <Col className="d-flex justify-content-around">
-                <SocialIcons name="linkedin" className="text-success" />
-                {/* <SocialIcons name="instagram" /> */}
-                <SocialIcons name="linkedin" />
+            <Col className="d-flex justify-content-around p-3" >
+                <SocialIcons src={Behance} />
+                <SocialIcons src={Instagram} />
             </Col>
-            <Col className="d-flex justify-content-between">
-                <SocialIcons name="instagram" />
-                <SocialIcons name="tv" />
-                <SocialIcons name="linkedin" className="text-success" />
-            </Col>
-            <Col className="d-flex justify-content-around">
-                <SocialIcons name="tint" className="text-success" />
-                <SocialIcons name="linkedin" />
-                {/* <SocialIcons name="youtube" /> */}
-            </Col>
-            <Col className="text-center">
-                <SocialIcons name="facebook" />
+            <Col className="d-flex justify-content-between p-3" >
+                <SocialIcons src={Pinterest} />
+                <SocialIcons src={Twitter} />
+                <SocialIcons src={Youtube} />
             </Col>
         </Col>
     );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Col } from 'reactstrap';
 import Header from '../Header/Header';
 import Snackbar from '../Snackbar/Snackbar';
 import { isMobileView } from '../../helpers/miscellaneous';
@@ -39,7 +40,7 @@ const MainLayout = (props) => {
 
     // props.token && showPromptMessage();
     return (
-        <div className="main-layout">
+        <Col className="main-layout offset-md-4" xs={12} lg={4} md={4} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
             {
                 isMobileView() ?
                     <>
@@ -54,7 +55,7 @@ const MainLayout = (props) => {
             }
             {/* Check Internet Connection */}
             {checkInternetConnection()}
-        </div>
+        </Col>
     );
 };
 

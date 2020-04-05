@@ -24,6 +24,7 @@
 
 
 .react-multiple-carousel__arrow:hover,.react-multiple-carousel__arrow--left,.react-multiple-carousel__arrow--right{
+    /* margin-right: 30px; */
     background: transparent;
     outline: none;
 }

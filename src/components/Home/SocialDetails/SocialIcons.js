@@ -1,16 +1,16 @@
 import React from 'react';
-import { Icon, Popup, Grid, Input } from 'semantic-ui-react'
+import { Icon, Popup, Grid, Input, Image } from 'semantic-ui-react'
 
 const SocialIcons = (props) => {
     return (
         <Popup
             key={props.name}
             trigger={
-                <Icon
-                    circular={true}
-                    style={{ fontSize: '40px' }}
-                    name={props.name}
-                    className={props.className}></Icon>}
+                <Image
+                    src={props.src}
+                    style={{ height: '70px', width: '70px' }}
+                    className={props.className} />
+            }
             flowing
             hoverable>
             <Grid.Column textAlign='center'>

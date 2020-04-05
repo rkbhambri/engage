@@ -6,6 +6,8 @@
 
 .share-card-details .buttons .ui.button {
     border-radius: 1.3em;
+    background: #121212;
+    color: #fff;
 }
 
 @media only screen and (max-width: 767px) {
