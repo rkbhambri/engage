@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Carousel from "react-multi-carousel";
-import { Icon, Divider, Input, Radio, Button } from 'semantic-ui-react';
+import { Icon, Divider } from 'semantic-ui-react';
 import { Col } from 'reactstrap';
 import { GoBroadcast } from 'react-icons/go';
 import "react-multi-carousel/lib/styles.css";
@@ -29,6 +29,7 @@ const Cards = (props) => {
 
     const editCardDetails = (id) => {
         setEditcardId(prevState => !prevState);
+        console.log('==editCardId==', editCardId);
     };
 
     const responsive = {
