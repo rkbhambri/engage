@@ -81,7 +81,7 @@ const SignupForm = (props) => {
                 error={invalidInput.name}
                 type="text"
                 id='name'
-                // required
+                required
                 fluid
                 value={formInput.name}
                 label='Name'
