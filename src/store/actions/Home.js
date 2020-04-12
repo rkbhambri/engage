@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../httpInstance/axios';
-import { userProfileUrl } from '../../url/Home';
+import { userProfileUrl, socialUrl } from '../../url/Home';
 
 export const setUserDetails = (userDetails) => {
     return {
@@ -37,3 +37,37 @@ export const updateUserProfile = (profileDetails) => {
     };
 };
 
+export const setSocialUrl = (socialUrl) => {
+    return {
+        type: actionTypes.SET_SOCIAL_URL,
+        socialUrl
+    };
+};
+
+export const getSocialUrl = () => {
+    return dispatch => {
+        axios.get(socialUrl())
+            .then(response => {
+                if (response.data.entity) {
+                    dispatch(setSocialUrl(response.data.entity));
+                }
+            })
+            .catch(error => {
+
+            });
+    };
+};
+
+export const updateSocialUrl = (socialPlatform) => {
+    return dispatch => {
+        axios.put(socialUrl(), socialPlatform)
+            .then(response => {
+                if (response.data.entity) {
+                    dispatch(setUserDetails(response.data.entity));
+                }
+            })
+            .catch(error => {
+
+            });
+    };
+};

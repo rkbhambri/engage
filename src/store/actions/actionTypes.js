@@ -19,8 +19,8 @@ export const SET_REQUEST_TO_SET_PASSWORD_ID = 'SET_REQUEST_TO_SET_PASSWORD_ID';
 export const UPDATE_LOADING_STATUS = 'UPDATE_LOADING_STATUS';
 
 // For Home
-
 export const SET_USER_DETAILS = 'SET_USER_DETAILS';
+export const SET_SOCIAL_URL = 'SET_SOCIAL_URL';
 
 // For Contests
 

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Col } from 'reactstrap';
+import * as actionCreaters from '../../../store/actions';
 import Behance from '../../../assets/social-icons/Behance.svg';
 import Dribble from '../../../assets/social-icons/Dribble.svg';
 import Facebook from '../../../assets/social-icons/Facebook.svg';
@@ -14,51 +16,48 @@ import './SocialDetails.css';
 
 const SocialDetails = (props) => {
 
-    // const socialIcons = arr.map(item => {
-    //     return (
-    //         <Popup
-    //             key={item.name}
-    //             trigger={
-    //                 <Icon
-    //                     // className="border"
-    //                     style={{ fontSize: '40px', marginLeft: item.leftAlign }}
-    //                     name={item.name}></Icon>}
-    //             flowing
-    //             hoverable>
-    //             <Grid.Column textAlign='center'>
-    //                 <Input
-    //                     type="text"
-    //                     transparent
-    //                     placeholder="Facebook username"
-    //                     className="border-bottom"
-    //                     style={{ color: '#fff' }}
-    //                 // onChange={(event) => setMoney(event.target.value)}
-    //                 // value={moneyValue}
-    //                 />
-    //                 <Icon name="check" style={{ color: 'green' }} className="ml-3"></Icon>
-    //             </Grid.Column>
-    //         </Popup>
-    //     )
-    // });
+    useEffect(() => {
+        props.onGetSocialUrl();
+    }, []);
+
+    const updateSocialUrl = (value, platform) => {
+        const socialUrl = { ...props.socialUrl };
+        socialUrl[platform] = value;
+        props.onUpdateSocialUrl(socialUrl);
+    };
 
     return (
         <Col className="social-details pt-4" xs={12}>
-            <Col className="d-flex mt-4 justify-content-between p-3" >
-                <SocialIcons src={Dribble} />
-                <SocialIcons src={Facebook} />
-                <SocialIcons src={Linkedin} />
+            <Col className="d-flex mt-4 justify-content-between p-3">
+                <SocialIcons src={Dribble} platform="dribble" value={props.socialUrl.dribbleUrl} />
+                <SocialIcons src={Facebook} platform="facebook" value={props.socialUrl.facebookUrl} updateSocialUrl={(value) => updateSocialUrl(value, 'facebookUrl')} />
+                <SocialIcons src={Linkedin} platform="linkedIn" value={props.socialUrl.linkedinUrl} />
             </Col>
-            <Col className="d-flex justify-content-around p-3" >
-                <SocialIcons src={Behance} />
-                <SocialIcons src={Instagram} />
+            <Col className="d-flex justify-content-around p-3">
+                <SocialIcons src={Behance} platform="behance" value={props.socialUrl.behanceUrl} />
+                <SocialIcons src={Instagram} platform="instagram" value={props.socialUrl.instagramUrl} />
             </Col>
-            <Col className="d-flex justify-content-between p-3" >
-                <SocialIcons src={Pinterest} />
-                <SocialIcons src={Twitter} />
-                <SocialIcons src={Youtube} />
+            <Col className="d-flex justify-content-between p-3">
+                <SocialIcons src={Pinterest} platform="pinterest" value={props.socialUrl.pinterestUrl} />
+                <SocialIcons src={Twitter} platform="twitter" value={props.socialUrl.twitterUrl} />
+                <SocialIcons src={Youtube} platform="youtube" value={props.socialUrl.youtubeChannelUrl} />
             </Col>
         </Col>
     );
 };
 
-export default SocialDetails;
+
+const mapStateToProps = state => {
+    return {
+        socialUrl: state.home.socialUrl
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onGetSocialUrl: () => dispatch(actionCreaters.getSocialUrl()),
+        onUpdateSocialUrl: (socialUrl) => dispatch(actionCreaters.updateSocialUrl(socialUrl))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SocialDetails);

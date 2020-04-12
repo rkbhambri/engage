@@ -103,7 +103,7 @@ const UserDetailsForm = (props) => {
             />
             <Col className="save-user-details text-right mt-3" xs={10}>
                 <Icon name="save outline" className="save-icon" onClick={saveUserDetails} />
-                <Icon name="window close outline" className="close-icon ml-2" />
+                <Icon name="window close outline" className="close-icon ml-2" onClick={props.toggleUserDetailsEditable} />
             </Col>
         </Form>
     );

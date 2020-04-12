@@ -10,14 +10,14 @@ import './UserDetails.css';
 
 const UserDetails = (props) => {
 
-    const [isUserDetailsEditable, toggleUserDetailsEditable] = useState(false);
+    const [isUserDetailsEditable, setUserDetailsEditable] = useState(false);
 
     useEffect(() => {
         props.onGetUserProfile();
     }, []);
 
-    const editUserDetails = () => {
-        toggleUserDetailsEditable(prevState => !prevState);
+    const toggleUserDetailsEditable = () => {
+        setUserDetailsEditable(prevState => !prevState);
     };
 
     return (
@@ -28,7 +28,7 @@ const UserDetails = (props) => {
             <div className="text-right">
                 <Icon
                     name="edit outline"
-                    onClick={editUserDetails}></Icon>
+                    onClick={toggleUserDetailsEditable}></Icon>
             </div>
             <div className="pb-4 d-flex">
                 <img
@@ -42,6 +42,7 @@ const UserDetails = (props) => {
                         isUserDetailsEditable ?
                             <UserDetailsForm
                                 userDetails={props.userDetails}
+                                toggleUserDetailsEditable={toggleUserDetailsEditable}
                                 updateUserProfile={(profileDetails) => props.onUpdateUserProfile(profileDetails)} />
                             :
                             <UserInfo userDetails={props.userDetails} />
