@@ -1,0 +1,12 @@
+
+.ui.form .field .prompt.label {
+    white-space: normal;
+    background: #fff!important;
+    border: 1px solid #e0b4b4!important;
+    color: #9f3a38!important;
+    text-transform: capitalize;
+}
+
+.redirect-to-login a{
+    text-decoration: underline;
+}

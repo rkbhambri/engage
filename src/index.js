@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 // import registerServiceWorker from './registerServiceWorker';
 import App from './App';
-import Login from './store/reducers/Login';
+import Auth from './store/reducers/Auth';
 import Contests from './store/reducers/Contests';
 import Leaders from './store/reducers/Leaders';
 import Wallet from './store/reducers/Wallet';
@@ -23,7 +23,7 @@ const getBasename = () => {
  * combining all the reducers
  */
 const rootReducer = combineReducers({
-    auth: Login,
+    auth: Auth,
     contests: Contests,
     leaders: Leaders,
     wallet: Wallet,

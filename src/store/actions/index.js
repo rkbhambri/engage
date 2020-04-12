@@ -6,10 +6,13 @@ export {
     login,
     logout,
     setRedirectPath,
-    employeeLogin,
     authFail,
-    emptyToken
-} from './Login';
+    emptyToken,
+    signup,
+    socialLogin,
+    verifyEmail,
+    setPassword
+} from './Auth';
 
 export {
     getQuestions
