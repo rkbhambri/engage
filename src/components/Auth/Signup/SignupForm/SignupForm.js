@@ -18,14 +18,14 @@ const SignupForm = (props) => {
     const [invalidInput, setInvalidInput] = useState({});
 
     useEffect(() => {
-        if (!isObjectEmpty(props.userDetails)) {
+        return (() => {
             setFormInput({
                 name: '',
                 email: '',
                 password: '',
                 confirmPassword: ''
             });
-        }
+        })
     }, [props.userDetails]);
 
 

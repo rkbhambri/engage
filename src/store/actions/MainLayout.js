@@ -1,4 +1,6 @@
 import * as actionTypes from './actionTypes';
+import axios from '../../httpInstance/axios';
+import { updateUserLocationUrl } from '../../url/MainLayout';
 
 export const setSnackbarMessage = (message) => {
     return {
@@ -6,3 +8,16 @@ export const setSnackbarMessage = (message) => {
         message
     };
 };
+
+export const updateUserLocation = (location) => {
+    return dispatch => {
+        axios.put(updateUserLocationUrl(), location)
+            .then(response => {
+
+            })
+            .catch(error => {
+
+            });
+    };
+};
+

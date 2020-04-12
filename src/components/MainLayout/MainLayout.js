@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col } from 'reactstrap';
+import { connect } from 'react-redux';
+import * as actionCreaters from '../../store/actions';
+import { isMobileView } from '../../helpers/miscellaneous';
 import Header from '../Header/Header';
 import Snackbar from '../Snackbar/Snackbar';
-import { isMobileView } from '../../helpers/miscellaneous';
 
 const MainLayout = (props) => {
     const [isOnline, setOnlineStatus] = useState(null);
+
+    useEffect(() => {
+        getMyLocation();
+    }, []);
 
     const updateOnlineStatus = () => {
         setOnlineStatus(navigator.onLine);
@@ -13,6 +19,24 @@ const MainLayout = (props) => {
 
     const emptySnackbar = () => {
         setOnlineStatus(null);
+    };
+
+    const getMyLocation = () => {
+        const location = window.navigator && window.navigator.geolocation
+
+        if (location) {
+            location.getCurrentPosition((position) => {
+                props.onUpdateUserLocation({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                })
+            }, (error) => {
+                // setLocation({
+                //     latitude: 'err-latitude',
+                //     longitude: 'err-longitude'
+                // })
+            })
+        }
     };
 
     const checkInternetConnection = () => {
@@ -59,4 +83,16 @@ const MainLayout = (props) => {
     );
 };
 
-export default MainLayout;
+const mapStateToProps = state => {
+    return {
+        userDetails: state.home.userDetails
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onUpdateUserLocation: (location) => dispatch(actionCreaters.updateUserLocation(location))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);

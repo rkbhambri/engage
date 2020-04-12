@@ -1,6 +1,8 @@
 
 export const messages = {
-    name: 'Card Name is required',
+    name: 'Name is required',
+    email: 'Email is required',
+    cardName: 'Card Name is required',
     category: 'Card Category is required',
     required: 'is required',
     invalidEmail: 'Please enter a valid email',

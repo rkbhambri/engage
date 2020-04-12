@@ -69,13 +69,6 @@ export const login = (loginDetails) => {
     };
 };
 
-export const setSignupDetails = (userDetails) => {
-    return {
-        type: actionTypes.SET_SIGNUP_DETAILS,
-        userDetails
-    };
-};
-
 export const signup = (signupDetails) => {
     return dispatch => {
         dispatch(updateLoadingStatus(true));
@@ -83,14 +76,6 @@ export const signup = (signupDetails) => {
             .then(response => {
                 dispatch(updateLoadingStatus(false));
                 if (response.data.status) {
-                    dispatch(setSignupDetails(response.data.entity));
-                    // const meta = {
-                    //     token: response.data.entity.token,
-                    //     id: response.data.entity.id,
-                    //     role: response.data.entity.roles
-                    // }
-                    // setItem('meta', meta);
-                    // dispatch(authSuccess(response.data.entity));
                     dispatch(setSnackbarMessage('User created successfully !'));
                     dispatch(login(signupDetails));
                 } else {

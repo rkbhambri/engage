@@ -83,7 +83,7 @@ const updateSetPasswordStatus = (state, action) => {
     });
 };
 
-const setSignupDetails = (state, action) => {
+const setUserDetails = (state, action) => {
     return updateObject(state, {
         userDetails: action.userDetails
     });
@@ -93,8 +93,8 @@ const Auth = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.AUTH_SUCCESS:
             return authSuccess(state, action);
-        case actionTypes.SET_SIGNUP_DETAILS:
-            return setSignupDetails(state, action);
+        case actionTypes.SET_USER_DETAILS:
+            return setUserDetails(state, action);
         case actionTypes.AUTH_FAIL:
             return authFail(state, action);
         case actionTypes.AUTH_LOGOUT:

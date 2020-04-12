@@ -33,9 +33,15 @@ export {
 } from './Account';
 
 export {
-    setSnackbarMessage
+    setSnackbarMessage,
+    updateUserLocation
 } from './MainLayout';
 
 export {
     addCard
 } from './MyCards';
+
+export {
+    getUserProfile,
+    updateUserProfile
+} from './Home';

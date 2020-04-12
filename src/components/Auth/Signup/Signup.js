@@ -60,8 +60,7 @@ const mapStateToProps = state => {
     return {
         error: state.auth.error,
         authRedirectPath: state.auth.authRedirectPath,
-        isLoading: state.auth.isLoading,
-        userDetails: state.auth.userDetails
+        isLoading: state.auth.isLoading
     };
 };
 

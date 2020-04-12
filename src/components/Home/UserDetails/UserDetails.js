@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import { Col, Form } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as actionCreaters from '../../../store/actions';
+import { Col } from 'reactstrap';
 import UserImg from '../../../assets/img/user.svg';
-import { Icon, Input } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
+import UserInfo from './UserInfo/UserInfo';
+import UserDetailsForm from './UserDetailsForm/UserDetailsForm';
 import './UserDetails.css';
 
 const UserDetails = (props) => {
 
     const [isUserDetailsEditable, toggleUserDetailsEditable] = useState(false);
+
+    useEffect(() => {
+        props.onGetUserProfile();
+    }, []);
 
     const editUserDetails = () => {
         toggleUserDetailsEditable(prevState => !prevState);
@@ -32,45 +40,11 @@ const UserDetails = (props) => {
                 <Col className="details" md={10} xs={10}>
                     {
                         isUserDetailsEditable ?
-                            <Form>
-                                <Input
-                                    type="text"
-                                    transparent
-                                    placeholder="Name"
-                                    className="border-bottom"
-                                    style={{ color: '#fff' }}
-                                // onChange={(event) => setMoney(event.target.value)}
-                                // value={moneyValue}
-                                />
-                                <Input
-                                    type="email"
-                                    transparent
-                                    placeholder="Email"
-                                    className="border-bottom mt-3"
-                                    style={{ color: '#fff' }}
-                                // onChange={(event) => setMoney(event.target.value)}
-                                // value={moneyValue}
-                                />
-                                <Input
-                                    type="text"
-                                    transparent
-                                    placeholder="Mobile"
-                                    className="border-bottom mt-3"
-                                    style={{ color: '#fff' }}
-                                // onChange={(event) => setMoney(event.target.value)}
-                                // value={moneyValue}
-                                />
-                                <Col className="save-user-details text-right mt-3" xs={10}>
-                                    <Icon name="save outline" className="save-icon"></Icon>
-                                    <Icon name="window close outline" className="close-icon ml-2"></Icon>
-                                </Col>
-                            </Form>
+                            <UserDetailsForm
+                                userDetails={props.userDetails}
+                                updateUserProfile={(profileDetails) => props.onUpdateUserProfile(profileDetails)} />
                             :
-                            <>
-                                <div>Ram krishan</div>
-                                <div className="mt-2">ramkrishan@gmail.com</div>
-                                <div className="mt-2">+91-8146698440</div>
-                            </>
+                            <UserInfo userDetails={props.userDetails} />
                     }
                 </Col>
             </div>
@@ -78,4 +52,17 @@ const UserDetails = (props) => {
     );
 };
 
-export default UserDetails;
+const mapStateToProps = state => {
+    return {
+        userDetails: state.home.userDetails
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onGetUserProfile: () => dispatch(actionCreaters.getUserProfile()),
+        onUpdateUserProfile: (profileDetails) => dispatch(actionCreaters.updateUserProfile(profileDetails))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserDetails);
