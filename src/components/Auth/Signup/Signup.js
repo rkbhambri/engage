@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Col, Row } from 'reactstrap';
-import { Message } from 'semantic-ui-react';
+// import { Message } from 'semantic-ui-react';
 import SignupForm from './SignupForm/SignupForm';
 import * as actionCreaters from '../../../store/actions';
 import { getItem } from '../../../helpers/cookie';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
-import { isObjectNotEmpty } from '../../../helpers/Object';
+// import { isObjectNotEmpty } from '../../../helpers/Object';
 import './Signup.css';
 
 const Signup = (props) => {
@@ -34,13 +34,13 @@ const Signup = (props) => {
                 {authRedirect}
                 <Col className="ml-1" md={6} lg={3} xs={10}>
                     <SocialLogin onSocialLogin={(authDetails) => props.onSocialLogin(authDetails)} /><br /><br />
-                    {
+                    {/* {
                         isObjectNotEmpty(props.userDetails) && <Message
                             success
                             header='Your user registration was successful'
                             content='You may now log-in with the email you have chosen'
                         />
-                    }
+                    } */}
                     <SignupForm
                         signup={(signupDetails) => props.onSignup(signupDetails)}
                         error={props.error}

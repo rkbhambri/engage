@@ -52,7 +52,7 @@ class App extends Component {
                 {
                     unauthenticated_routes.map(({ path, component }, key) => <Route exact path={path} component={component} key={key} />)
                 }
-                <Redirect to="/login" />
+                <Redirect to={this.getRedirectPath(unauthenticated_routes)} />
             </React.Suspense>
         );
 
@@ -66,7 +66,7 @@ class App extends Component {
                             }
                         </React.Suspense>
                     </MainLayout>
-                    <Redirect to="/" />
+                    <Redirect to={this.getRedirectPath(authenticated_routes)} />
                 </>
             );
         }
