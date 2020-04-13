@@ -9,15 +9,14 @@ import './MyCards.css';
 
 const MyCards = (props) => {
 
-    const [isAddCardModalOpen, setAddCardModalOpen] = useState(false);
+    const [isAddCardModalOpen, setAddCardModalOpen] = useState(true);
 
     const toggleAddCardModal = () => {
         setAddCardModalOpen(prevState => !prevState);
     };
 
     useEffect(() => {
-        props.onGetWalletDetails();
-        props.onGetTransactions();
+        props.onGetCards();
     }, []);
 
     return (
@@ -54,8 +53,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGetWalletDetails: () => dispatch(actionCreaters.getWalletDetails()),
-        onGetTransactions: () => dispatch(actionCreaters.getTransactions())
+        onGetCards: () => dispatch(actionCreaters.getCards())
     };
 };
 

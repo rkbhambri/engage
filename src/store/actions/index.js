@@ -38,6 +38,7 @@ export {
 } from './MainLayout';
 
 export {
+    getCards,
     addCard
 } from './MyCards';
 

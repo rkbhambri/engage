@@ -5,7 +5,7 @@ import AddCardForm from './AddCardForm/AddCardForm'
 const AddCard = (props) => {
     return (
         <Modal
-            dimmer="blurring"
+            dimmer="default"
             open={props.isAddCardModalOpen}
             onClose={props.toggleAddCardModal}
             className="add-card-details"

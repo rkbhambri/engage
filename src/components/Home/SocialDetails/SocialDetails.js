@@ -31,7 +31,7 @@ const SocialDetails = (props) => {
             <Col className="d-flex mt-4 justify-content-between p-3">
                 <SocialIcons src={Dribble} platform="dribble" value={props.socialUrl.dribbleUrl} />
                 <SocialIcons src={Facebook} platform="facebook" value={props.socialUrl.facebookUrl} updateSocialUrl={(value) => updateSocialUrl(value, 'facebookUrl')} />
-                <SocialIcons src={Linkedin} platform="linkedIn" value={props.socialUrl.linkedinUrl} />
+                <SocialIcons src={Linkedin} platform="linkedin" value={props.socialUrl.linkedinUrl} />
             </Col>
             <Col className="d-flex justify-content-around p-3">
                 <SocialIcons src={Behance} platform="behance" value={props.socialUrl.behanceUrl} />
@@ -40,7 +40,7 @@ const SocialDetails = (props) => {
             <Col className="d-flex justify-content-between p-3">
                 <SocialIcons src={Pinterest} platform="pinterest" value={props.socialUrl.pinterestUrl} />
                 <SocialIcons src={Twitter} platform="twitter" value={props.socialUrl.twitterUrl} />
-                <SocialIcons src={Youtube} platform="youtube" value={props.socialUrl.youtubeChannelUrl} />
+                <SocialIcons src={Youtube} platform="youtubeChannel" value={props.socialUrl.youtubeChannelUrl} />
             </Col>
         </Col>
     );

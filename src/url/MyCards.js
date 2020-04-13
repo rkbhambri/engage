@@ -1,6 +1,7 @@
 
 import { getItem } from '../helpers/cookie';
 
-export const addCardUrl = () => {
+export const cardsUrl = () => {
     return `users/${getItem('id')}/cards`;
 };
+
