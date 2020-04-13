@@ -66,6 +66,10 @@ const MainLayout = (props) => {
     return (
         <Col className="main-layout offset-md-4" xs={12} lg={4} md={4} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
             {
+                props.message &&
+                <Snackbar error={props.message} />
+            }
+            {
                 isMobileView() ?
                     <>
                         {props.children}<br /><br /><br />
@@ -85,6 +89,7 @@ const MainLayout = (props) => {
 
 const mapStateToProps = state => {
     return {
+        message: state.mainLayout.message,
         userDetails: state.home.userDetails
     };
 };

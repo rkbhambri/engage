@@ -1,5 +1,6 @@
 
 export const messages = {
+    socialMedia: 'Please add atleast one social media',
     name: 'Name is required',
     email: 'Email is required',
     cardName: 'Card Name is required',

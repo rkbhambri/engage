@@ -3,6 +3,10 @@ html, body, #root,.main-layout {
     height: 100%;
 }
 
+.text-danger{
+    color:#9f3a38 !important;
+}
+
 .main-layout{
     background: #181b26;
 }

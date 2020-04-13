@@ -2,10 +2,10 @@ import * as actionTypes from './actionTypes';
 import axios from '../../httpInstance/axios';
 import { cardsUrl } from '../../url/MyCards';
 
-export const authSuccess = (response) => {
+export const setSnackbarMessage = (message) => {
     return {
-        type: actionTypes.AUTH_SUCCESS,
-        superAdminDetails: response,
+        type: actionTypes.SET_SNACKBAR_MESSAGE,
+        message
     };
 };
 
@@ -16,15 +16,14 @@ export const updateLoadingStatus = (status) => {
     };
 };
 
-
 export const getCards = () => {
     return dispatch => {
         axios.get(cardsUrl())
             .then(response => {
-                if (response.data.status) {
+                if (response.data.entity) {
 
                 } else {
-
+                    dispatch(setSnackbarMessage(response.data.message));
                 }
             })
             .catch(error => {
@@ -37,10 +36,12 @@ export const addCard = (cardDetails) => {
     return dispatch => {
         axios.post(cardsUrl(), cardDetails)
             .then(response => {
-                dispatch(updateLoadingStatus(false));
-                if (response.data.status) {
-
+                if (response.data.entity) {
+                    console.log('===response===', response);
+                    dispatch(setSnackbarMessage(response.data.message));
                 } else {
+                    console.log('===errrr===');
+                    dispatch(setSnackbarMessage(response.data.message));
                 }
             })
             .catch(error => {

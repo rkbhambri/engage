@@ -7,6 +7,10 @@ export const parseData = (data) => {
     return JSON.parse(JSON.stringify(data));
 };
 
+export const getCapitalizeText = (text) => {
+    return text.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 export const isEmpty = (item) => {
     return item.trim() === '';
 };

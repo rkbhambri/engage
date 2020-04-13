@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import App from './App';
 import Auth from './store/reducers/Auth';
 import Home from './store/reducers/Home';
+import MainLayout from './store/reducers/MainLayout';
 import Contests from './store/reducers/Contests';
 import Leaders from './store/reducers/Leaders';
 import Wallet from './store/reducers/Wallet';
@@ -25,6 +26,7 @@ const getBasename = () => {
  */
 const rootReducer = combineReducers({
     auth: Auth,
+    mainLayout: MainLayout,
     home: Home,
     contests: Contests,
     leaders: Leaders,

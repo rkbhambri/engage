@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { Form, Button, Select } from 'semantic-ui-react';
 import * as actionCreaters from '../../../../store/actions';
-import { parseData, isEmpty } from '../../../../helpers/miscellaneous';
+import { parseData, isEmpty, getCapitalizeText } from '../../../../helpers/miscellaneous';
 import { messages } from '../../../../helpers/messages';
 import { isObjectEmpty, isObjectNotEmpty } from '../../../../helpers/Object';
 import { socialMediaPlatforms } from '../../../../helpers/socialMedia';
@@ -68,6 +68,9 @@ const AddCardForm = (props) => {
                     updatedCardDetails[key] = props.socialUrl[key];
                 }
             }
+            // only for now
+            updatedCardDetails.thumbnailId = '';
+            updatedCardDetails.name = '';
             setCardDetails(updatedCardDetails);
         }
     }, [props.socialUrl]);
@@ -83,21 +86,54 @@ const AddCardForm = (props) => {
         }
     };
 
-    const selectSocialLink = (social) => {
+    const addToCard = (activeUrl) => {
         const card = { ...cardDetails };
-        card[social] = !card[social];
+        card[activeUrl] = !card[activeUrl];
         setCardDetails(card);
+        if (invalidInput.socialMedia) {
+            const invalidInputDetails = parseData(invalidInput);
+            delete invalidInputDetails.socialMedia;
+            setInvalidInput(invalidInputDetails);
+        }
+    };
+
+    const updateSocialUrl = (urlValue, urlKey) => {
+        const card = { ...cardDetails };
+        card[urlKey] = urlValue;
+        setCardDetails(card);
+        if (invalidInput.socialMedia) {
+            const invalidInputDetails = parseData(invalidInput);
+            delete invalidInputDetails.socialMedia;
+            setInvalidInput(invalidInputDetails);
+        }
+    };
+
+    // const selectSocialLink = (social) => {
+    //     const card = { ...cardDetails };
+    //     card[social] = !card[social];
+    //     setCardDetails(card);
+    // };
+
+    const isSocialUrlAdded = () => {
+        let isUrlAdded = false;
+        for (let key in cardDetails) {
+            if (key.includes('Active') && cardDetails[key]) {
+                isUrlAdded = true;
+            }
+        }
+        return isUrlAdded;
     };
 
     const addCard = () => {
         const invalidInputDetails = parseData(invalidInput);
 
-        if (isEmpty(cardDetails.name)) {
-            invalidInputDetails.name = `${messages.name}`;
-        }
         if (isEmpty(cardDetails.category)) {
             invalidInputDetails.category = `${messages.category}`;
         }
+        if (!isSocialUrlAdded()) {
+            invalidInputDetails.socialMedia = `${messages.socialMedia}`;
+        }
+
         setInvalidInput(invalidInputDetails);
 
         if (isObjectEmpty(invalidInputDetails)) {
@@ -112,22 +148,34 @@ const AddCardForm = (props) => {
     return (
         <Form>
             <div className="card-type mt-2">
-                <h5>Card Type</h5>
+                <h5>Card Category</h5>
                 <Select
                     error={invalidInput.category ? true : false}
                     fluid
-                    placeholder='Select Card Type'
+                    placeholder='Select Card Category'
                     options={cardTypeOptions}
                     onChange={(event) => categoryChangeHandler(event)} />
+                {
+                    invalidInput.category && <span className="text-danger pl-1">{invalidInput.category}</span>
+                }
             </div><br />
             <div className="social-links">
                 <h3>Social Links</h3>
+                {
+                    invalidInput.socialMedia && <span className="text-danger pl-1">{invalidInput.socialMedia}</span>
+                }
                 <Row>
                     {
                         socialMediaPlatforms.map(item => {
                             return (
                                 <Col xs={4} md={4} key={item}>
-                                    <SocialIcons src={selectLogoImage[item]} platform={item} value={props.socialUrl[item + 'Url']} />
+                                    <SocialIcons
+                                        src={selectLogoImage[item]}
+                                        platform={item}
+                                        value={cardDetails[`${item}Url`] || ''}
+                                        isActive={cardDetails[`is${getCapitalizeText(item)}Active`]}
+                                        addToCard={() => addToCard(`is${getCapitalizeText(item)}Active`)}
+                                        updateSocialUrl={(urlValue) => updateSocialUrl(urlValue, `${item}Url`)} />
                                 </Col>
                             );
                         })
