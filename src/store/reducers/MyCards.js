@@ -28,7 +28,7 @@ const MyCards = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SET_CARDS:
             return setCards(state, action);
-        case actionTypes.SET_SOCIAL_URL:
+        case actionTypes.EMPTY_CARDS:
             return emptyCards(state, action);
         case actionTypes.UPDATE_CARDS:
             return updateCards(state, action);
