@@ -4,12 +4,13 @@ import Card from './Card/Card'
 const Cards = (props) => {
     return (
         <div className="cards">
-            <Card walletDetails={props.walletDetails} id="1" />
-            <Card walletDetails={props.walletDetails} id="2" />
-            <Card walletDetails={props.walletDetails} id="3" />
-            <Card walletDetails={props.walletDetails} id="4" />
-            <Card walletDetails={props.walletDetails} id="5" />
-            <Card walletDetails={props.walletDetails} id="6" />
+            {
+                props.cards.map(item => {
+                    return (
+                        <Card id="1" key={item.id} cardDetails={item} />
+                    );
+                })
+            }
         </div>
     );
 };

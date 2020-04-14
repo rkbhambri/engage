@@ -17,7 +17,13 @@ const MyCards = (props) => {
 
     useEffect(() => {
         props.onGetCards();
+        return (() => {
+            props.onEmptyCards();
+        })
     }, []);
+
+    console.log('==cards==', props.cards);
+
 
     return (
         <Col className="my-cards pt-4 pb-5">
@@ -36,9 +42,7 @@ const MyCards = (props) => {
                         onClick={() => toggleAddCardModal()} />
                 </Col>
             </Row>
-            <Cards />
-
-
+            <Cards cards={props.cards} />
             {/* <Transactions transactions={props.transactions} /> */}
         </Col>
     );
@@ -46,14 +50,14 @@ const MyCards = (props) => {
 
 const mapStateToProps = state => {
     return {
-        walletDetails: state.wallet.walletDetails,
-        transactions: state.wallet.transactions
+        cards: state.myCards.cards
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGetCards: () => dispatch(actionCreaters.getCards())
+        onGetCards: () => dispatch(actionCreaters.getCards()),
+        onEmptyCards: () => dispatch(actionCreaters.emptyCards()),
     };
 };
 

@@ -22,6 +22,11 @@ export const UPDATE_LOADING_STATUS = 'UPDATE_LOADING_STATUS';
 export const SET_USER_DETAILS = 'SET_USER_DETAILS';
 export const SET_SOCIAL_URL = 'SET_SOCIAL_URL';
 
+// For My Cards
+export const SET_CARDS = 'SET_CARDS';
+export const EMPTY_CARDS = 'EMPTY_CARDS';
+export const UPDATE_CARDS = 'UPDATE_CARDS';
+
 // For Contests
 
 export const SET_QUESTIONS = 'SET_QUESTIONS';

@@ -16,19 +16,33 @@ export const updateLoadingStatus = (status) => {
     };
 };
 
+export const setCards = (cards) => {
+    return {
+        type: actionTypes.SET_CARDS,
+        cards
+    };
+};
+
 export const getCards = () => {
     return dispatch => {
         axios.get(cardsUrl())
             .then(response => {
                 if (response.data.entity) {
-
+                    dispatch(setCards(response.data.entity.cards));
                 } else {
                     dispatch(setSnackbarMessage(response.data.message));
                 }
             })
             .catch(error => {
-                // dispatch(authFail('Something Went Wrong !!'));
+                dispatch(setSnackbarMessage('Something Went Wrong !!'));
             });
+    };
+};
+
+export const updateCards = (cardDetails) => {
+    return {
+        type: actionTypes.UPDATE_CARDS,
+        cardDetails
     };
 };
 
@@ -38,6 +52,7 @@ export const addCard = (cardDetails) => {
             .then(response => {
                 if (response.data.entity) {
                     console.log('===response===', response);
+                    dispatch(updateCards(response.data.entity));
                     dispatch(setSnackbarMessage(response.data.message));
                 } else {
                     console.log('===errrr===');
@@ -50,3 +65,8 @@ export const addCard = (cardDetails) => {
     };
 };
 
+export const emptyCards = () => {
+    return {
+        type: actionTypes.EMPTY_CARDS
+    };
+};

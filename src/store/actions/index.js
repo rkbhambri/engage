@@ -39,7 +39,8 @@ export {
 
 export {
     getCards,
-    addCard
+    addCard,
+    emptyCards
 } from './MyCards';
 
 export {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col, } from 'reactstrap';
 import { GoBroadcast } from 'react-icons/go';
-import { Icon, Divider, Input, Radio, Button } from 'semantic-ui-react';
+import { Icon, Divider, Input, Radio, Button, Image } from 'semantic-ui-react';
 import './Card.css';
 import Profile_pic from '../../../../assets/img/user.svg';
 import Card1 from '../../../../assets/Cards/Card-1.jpg';
@@ -10,25 +10,39 @@ import Card3 from '../../../../assets/Cards/Card-3.jpg';
 import Card4 from '../../../../assets/Cards/Card-4.jpg';
 import Card5 from '../../../../assets/Cards/Card-5.jpg';
 import Card6 from '../../../../assets/Cards/Card-6.jpg';
+import Behance from '../../../../assets/social-icons/Behance.svg';
+import Dribble from '../../../../assets/social-icons/Dribble.svg';
+import Facebook from '../../../../assets/social-icons/Facebook.svg';
+import Instagram from '../../../../assets/social-icons/Instagram.svg';
+import Linkedin from '../../../../assets/social-icons/Linkedin.svg';
+import Pinterest from '../../../../assets/social-icons/Pinterest.svg';
+import Twitter from '../../../../assets/social-icons/Twitter.svg';
+import Youtube from '../../../../assets/social-icons/Youtube.svg';
 
 const Card = (props) => {
 
     const [editCardId, setEditcardId] = useState(false);
+
     const [cards] = useState({
-        1: Card1,
-        2: Card2,
-        3: Card3,
-        4: Card4,
-        5: Card5,
-        6: Card6
+        Personal: Card1,
+        Professional: Card2,
+        Meetup: Card3,
+        Travel: Card4,
+        Social: Card5,
+        Work: Card6,
+        Office: Card1
     });
+
 
     const editCardDetails = (id) => {
         setEditcardId(prevState => !prevState);
     };
 
+    console.log('====props.cardDetails.isFacebookActive==', props.cardDetails.isFacebookActive);
+
+
     return (
-        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[props.id]})` }} onClick={() => editCardDetails(props.id)}>
+        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[props.cardDetails.category]})` }} onClick={() => editCardDetails(props.id)}>
             <Col className="text-right mb-2">
                 <GoBroadcast className="mt-3" style={{ fontSize: '28px' }} />
                 <div className="text-center">
@@ -50,10 +64,35 @@ const Card = (props) => {
                 sm={12}>
                 <div className="social-icons">
                     <Divider horizontal>
-                        <Icon name="facebook official" style={{ fontSize: '28px' }} />
-                        <Icon className="ml-2 mr-2" name="instagram" style={{ fontSize: '28px' }} />
-                        <Icon className="ml-2 mr-2" name="youtube" style={{ fontSize: '28px' }} />
-                        <Icon name="github" style={{ fontSize: '28px' }} />
+
+                        {
+                            props.cardDetails.isFacebookActive &&
+                            <img
+                                src={Facebook}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            props.cardDetails.isInstagramActive &&
+                            <img
+                                src={Instagram}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            props.cardDetails.isLinkedinActive &&
+                            <img
+                                src={Linkedin}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            props.cardDetails.isTiktokActive &&
+                            <img
+                                src={Facebook}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
                     </Divider>
                 </div>
             </Col>

@@ -26,7 +26,7 @@ class App extends Component {
                 routeExist = true;
             }
         }
-        const redirectDefaultRoute = getItem('token') ? '/' : '/';
+        const redirectDefaultRoute = getItem('token') ? '/' : '/login';
         return routeExist ? this.props.location.pathname : redirectDefaultRoute
     }
 
