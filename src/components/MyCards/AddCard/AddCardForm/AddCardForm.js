@@ -137,13 +137,10 @@ const AddCardForm = (props) => {
         setInvalidInput(invalidInputDetails);
 
         if (isObjectEmpty(invalidInputDetails)) {
-            console.log('kgsagku==', cardDetails)
             props.toggleAddCardModal();
             props.onAddCard(cardDetails);
         }
     };
-
-    console.log('====', cardTypeOptions);
 
     return (
         <Form>

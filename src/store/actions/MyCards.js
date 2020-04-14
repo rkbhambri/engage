@@ -51,11 +51,9 @@ export const addCard = (cardDetails) => {
         axios.post(cardsUrl(), cardDetails)
             .then(response => {
                 if (response.data.entity) {
-                    console.log('===response===', response);
                     dispatch(updateCards(response.data.entity));
                     dispatch(setSnackbarMessage(response.data.message));
                 } else {
-                    console.log('===errrr===');
                     dispatch(setSnackbarMessage(response.data.message));
                 }
             })

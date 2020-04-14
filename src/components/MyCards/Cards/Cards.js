@@ -2,8 +2,6 @@ import React from 'react';
 import Card from './Card/Card'
 
 const Cards = (props) => {
-    console.log('===cards====', props.cards);
-
     return (
         <div className="cards">
             {

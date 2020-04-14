@@ -29,7 +29,6 @@ const Cards = (props) => {
 
     const editCardDetails = (id) => {
         setEditcardId(prevState => !prevState);
-        console.log('==editCardId==', editCardId);
     };
 
     const responsive = {

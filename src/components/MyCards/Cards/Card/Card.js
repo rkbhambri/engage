@@ -38,11 +38,8 @@ const Card = (props) => {
         setEditcardId(prevState => !prevState);
     };
 
-    console.log('====props.cardDetails.isFacebookActive==', props.cardDetails.isFacebookActive);
-
-
     return (
-        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[props.cardDetails.category]})` }} onClick={() => editCardDetails(props.id)}>
+        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[props.cardDetails.category]})` }}>
             <Col className="text-right mb-2">
                 <GoBroadcast className="mt-3" style={{ fontSize: '28px' }} />
                 <div className="text-center">
@@ -59,7 +56,7 @@ const Card = (props) => {
                 </div>
             </Col>
             <Col
-                className="social-details pb-2"
+                className="social-details"
                 md={12}
                 sm={12}>
                 <div className="social-icons">
@@ -96,6 +93,9 @@ const Card = (props) => {
                     </Divider>
                 </div>
             </Col>
+            <div className="text-right" onClick={() => editCardDetails(props.id)}>
+                <Icon name="angle down" style={{ fontSize: '25px' }} />
+            </div>
             {
                 editCardId &&
                 <div className="p-2">

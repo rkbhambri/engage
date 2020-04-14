@@ -53,9 +53,6 @@ const UserDetailsForm = (props) => {
 
         setInvalidInput(invalidInputDetails);
         if (isObjectEmpty(invalidInputDetails)) {
-            alert('suyccessfulll');
-            console.log('======', formInput);
-
             props.updateUserProfile(formInput);
         }
     };

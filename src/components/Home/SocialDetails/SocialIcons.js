@@ -11,16 +11,12 @@ const SocialIcons = (props) => {
         pinterest: 'Pinterest username',
         twitter: 'Twitter url',
         youtubeChannel: 'Youtube channel url'
-    })
+    });
     const [url, setUrl] = useState('');
 
     const urlChangeHandler = (value) => {
         setUrl(value);
     };
-
-    console.log('===url===', props.value);
-
-
     return (
         <Popup
             key={props.name}
@@ -45,13 +41,16 @@ const SocialIcons = (props) => {
                 />
                 <Icon name="check" style={{ color: 'green' }} className="ml-3" onClick={() => props.updateSocialUrl(url)}></Icon>
             </Grid.Column>
-            <Grid.Column className="pt-3 pb-2">
-                <Button
-                    color="blue"
-                    size="tiny"
-                    disabled={!props.value}
-                    onClick={() => props.addToCard()}>{props.isActive ? 'Move From Card' : 'Add To Card'}</Button>
-            </Grid.Column>
+            {
+                window.location.pathname !== '/' &&
+                <Grid.Column className="pt-3 pb-2">
+                    <Button
+                        color="blue"
+                        size="tiny"
+                        disabled={!props.value}
+                        onClick={() => props.addToCard()}>{props.isActive ? 'Move From Card' : 'Add To Card'}</Button>
+                </Grid.Column>
+            }
         </Popup>
     );
 };

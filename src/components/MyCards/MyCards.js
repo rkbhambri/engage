@@ -22,9 +22,6 @@ const MyCards = (props) => {
         })
     }, []);
 
-    console.log('==cards==', props.cards);
-
-
     return (
         <Col className="my-cards pt-4 pb-5">
             <AddCard
