@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { Col, } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Col, Row } from 'reactstrap';
 import { GoBroadcast } from 'react-icons/go';
-import { Icon, Divider, Input, Radio, Button, Image } from 'semantic-ui-react';
+import { Icon, Divider, Button } from 'semantic-ui-react';
 import './Card.css';
+import { socialMediaPlatforms } from '../../../../helpers/socialMedia';
+import { getCapitalizeText, parseData } from '../../../../helpers/miscellaneous';
+import SocialIcons from '../../../Home/SocialDetails/SocialIcons';
 import Profile_pic from '../../../../assets/img/user.svg';
 import Card1 from '../../../../assets/Cards/Card-1.jpg';
 import Card2 from '../../../../assets/Cards/Card-2.jpg';
@@ -21,6 +24,22 @@ import Youtube from '../../../../assets/social-icons/Youtube.svg';
 
 const Card = (props) => {
 
+    const [cardDetails, setCardDetails] = useState({
+        category: '',
+        // thumbnailId: '',
+        facebookUrl: '',
+        instagramUrl: '',
+        linkedinUrl: '',
+        tiktokUrl: '',
+        youtubeChannelUrl: '',
+        isFacebookActive: false,
+        isInstagramActive: false,
+        isLinkedinActive: false,
+        isTiktokActive: false,
+        isYoutubeChannelActive: false
+    });
+    const [invalidInput, setInvalidInput] = useState({});
+
     const [editCardId, setEditcardId] = useState(false);
 
     const [cards] = useState({
@@ -33,13 +52,53 @@ const Card = (props) => {
         Office: Card1
     });
 
+    const selectLogoImage = {
+        behance: Behance,
+        dribble: Dribble,
+        facebook: Facebook,
+        instagram: Instagram,
+        linkedin: Linkedin,
+        pinterest: Pinterest,
+        twitter: Twitter,
+        youtubeChannel: Youtube,
+    };
+
+    useEffect(() => {
+        setCardDetails(props.cardDetails);
+    }, [props.cardDetails]);
 
     const editCardDetails = (id) => {
         setEditcardId(prevState => !prevState);
     };
 
+    const addToCard = (activeUrl) => {
+        const card = { ...cardDetails };
+        card[activeUrl] = !card[activeUrl];
+        setCardDetails(card);
+        if (invalidInput.socialMedia) {
+            const invalidInputDetails = parseData(invalidInput);
+            delete invalidInputDetails.socialMedia;
+            setInvalidInput(invalidInputDetails);
+        }
+    };
+
+    const updateSocialUrl = (urlValue, urlKey) => {
+        const card = { ...cardDetails };
+        card[urlKey] = urlValue;
+        setCardDetails(card);
+        if (invalidInput.socialMedia) {
+            const invalidInputDetails = parseData(invalidInput);
+            delete invalidInputDetails.socialMedia;
+            setInvalidInput(invalidInputDetails);
+        }
+    };
+
+    const updateCardDetails = () => {
+        setEditcardId(prevState => !prevState);
+    };
+
     return (
-        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[props.cardDetails.category]})` }}>
+        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[cardDetails.category]})` }}>
             <Col className="text-right mb-2">
                 <GoBroadcast className="mt-3" style={{ fontSize: '28px' }} />
                 <div className="text-center">
@@ -63,30 +122,65 @@ const Card = (props) => {
                     <Divider horizontal>
 
                         {
-                            props.cardDetails.isFacebookActive &&
+                            cardDetails.isFacebookActive &&
                             <img
                                 src={Facebook}
                                 alt="Engaze"
                                 style={{ height: '40px', width: '40px' }} />
                         }
                         {
-                            props.cardDetails.isInstagramActive &&
+                            cardDetails.isInstagramActive &&
                             <img
                                 src={Instagram}
                                 alt="Engaze"
                                 style={{ height: '40px', width: '40px' }} />
                         }
                         {
-                            props.cardDetails.isLinkedinActive &&
+                            cardDetails.isLinkedinActive &&
                             <img
                                 src={Linkedin}
                                 alt="Engaze"
                                 style={{ height: '40px', width: '40px' }} />
                         }
                         {
-                            props.cardDetails.isTiktokActive &&
+                            cardDetails.isTiktokActive &&
                             <img
                                 src={Facebook}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            cardDetails.isDribbleActive &&
+                            <img
+                                src={Dribble}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            cardDetails.isBehanceActive &&
+                            <img
+                                src={Behance}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            cardDetails.isPinterestActive &&
+                            <img
+                                src={Pinterest}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            cardDetails.isTwitterActive &&
+                            <img
+                                src={Twitter}
+                                alt="Engaze"
+                                style={{ height: '40px', width: '40px' }} />
+                        }
+                        {
+                            cardDetails.isYoutubeChannelActive &&
+                            <img
+                                src={Youtube}
                                 alt="Engaze"
                                 style={{ height: '40px', width: '40px' }} />
                         }
@@ -98,63 +192,34 @@ const Card = (props) => {
             </div>
             {
                 editCardId &&
-                <div className="p-2">
-                    <div className="d-flex" style={{ justifyContent: 'space-between' }}>
-                        <Icon name="facebook official" style={{ fontSize: '28px' }} />
-                        <Input
-                            type="text"
-                            transparent
-                            placeholder="Enter here"
-                            className="border"
-                            style={{ color: '#fff', borderRadius: '7px' }}
-                        // onChange={(event) => setMoney(event.target.value)}
-                        // value="parasbhambri.2@facebook.com"
-                        />
-                        <Radio toggle />
+                <Col>
+                    <Row>
+                        {
+                            socialMediaPlatforms.map(item => {
+                                return (
+                                    <Col xs={4} md={4} key={item}>
+                                        <SocialIcons
+                                            src={selectLogoImage[item]}
+                                            platform={item}
+                                            value={cardDetails[`${item}Url`] || ''}
+                                            isActive={cardDetails[`is${getCapitalizeText(item)}Active`]}
+                                            addToCard={() => addToCard(`is${getCapitalizeText(item)}Active`)}
+                                            updateSocialUrl={(urlValue) => updateSocialUrl(urlValue, `${item}Url`)}
+                                        />
+                                    </Col>
+                                );
+                            })
+                        }
+                    </Row><br />
+                    <div className="text-center mb-3">
+                        <Button
+                            className="pl-4 pr-4"
+                            size="tiny"
+                            icon="check"
+                            style={{ color: 'green', borderRadius: '8px' }}
+                            onClick={() => updateCardDetails()} />
                     </div>
-                    <div className="d-flex mt-4" style={{ justifyContent: 'space-between' }}>
-                        <Icon name="instagram" style={{ fontSize: '28px' }} />
-                        <Input
-                            type="text"
-                            transparent
-                            placeholder="Enter here"
-                            className="border"
-                            style={{ color: '#fff', borderRadius: '7px' }}
-                        // onChange={(event) => setMoney(event.target.value)}
-                        // value={moneyValue}
-                        />
-                        <Radio toggle />
-                    </div>
-                    <div className="d-flex mt-4" style={{ justifyContent: 'space-between' }}>
-                        <Icon name="youtube" style={{ fontSize: '28px' }} />
-                        <Input
-                            type="text"
-                            transparent
-                            placeholder="Enter here"
-                            className="border"
-                            style={{ color: '#fff', borderRadius: '7px' }}
-                        // onChange={(event) => setMoney(event.target.value)}
-                        // value={moneyValue}
-                        />
-                        <Radio toggle />
-                    </div>
-                    <div className="d-flex mt-4" style={{ justifyContent: 'space-between' }}>
-                        <Icon name="github" style={{ fontSize: '28px' }} />
-                        <Input
-                            type="text"
-                            transparent
-                            placeholder="Enter here"
-                            className="border"
-                            style={{ color: '#fff', borderRadius: '7px' }}
-                        // onChange={(event) => setMoney(event.target.value)}
-                        // value={moneyValue}
-                        />
-                        <Radio toggle />
-                    </div>
-                    <div className="text-center mt-4">
-                        <Button className="pl-4 pr-4" size="tiny" icon="check" style={{ color: 'green', borderRadius: '8px' }} />
-                    </div>
-                </div>
+                </Col>
             }
         </div>
     );
