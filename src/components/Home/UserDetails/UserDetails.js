@@ -30,7 +30,7 @@ const UserDetails = (props) => {
                     name="edit outline"
                     onClick={toggleUserDetailsEditable}></Icon>
             </div>
-            <div className="pb-4 d-flex">
+            <div className="pb-3 d-flex">
                 <img
                     src={UserImg}
                     alt="Profile Pic"

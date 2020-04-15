@@ -119,7 +119,7 @@ const Card = (props) => {
                 md={12}
                 sm={12}>
                 <div className="social-icons">
-                    <Divider horizontal>
+                    <Divider horizontal className="m-0">
 
                         {
                             cardDetails.isFacebookActive &&

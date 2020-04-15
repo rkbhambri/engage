@@ -43,9 +43,10 @@ class App extends Component {
         //         </React.Suspense>
         //     </MainLayout>
         // );
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE5ZGVlZWYwLTY0ZmItMTFlYS04NDUwLTAzZGIxMWYzODQ3NiIsIm5hbWUiOiJUZXN0IiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc1MzY3ODkwMjAiLCJpYXQiOjE1ODQwODQyNjV9.NAWb4CVez9p1Ao1eVoF2Q4JT1pjFnmvx08hsTQRBMos'
-        const id = 'a9deeef0-64fb-11ea-8450-03db11f38476';
-        console.log('==token===', token, '===id===', id);
+
+        // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE5ZGVlZWYwLTY0ZmItMTFlYS04NDUwLTAzZGIxMWYzODQ3NiIsIm5hbWUiOiJUZXN0IiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc1MzY3ODkwMjAiLCJpYXQiOjE1ODQwODQyNjV9.NAWb4CVez9p1Ao1eVoF2Q4JT1pjFnmvx08hsTQRBMos'
+        // const id = 'a9deeef0-64fb-11ea-8450-03db11f38476';
+        // console.log('==token===', token, '===id===', id);
 
         let routes = (
             <React.Suspense fallback={<PageSpinner />} >

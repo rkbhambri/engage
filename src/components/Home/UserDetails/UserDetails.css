@@ -23,7 +23,7 @@
     overflow-wrap: break-word;
 }
 
-i.icon, i.icons {
+.user-details i.icon, i.icons {
     font-size: 1.2em;
     color: #ccc;
 }

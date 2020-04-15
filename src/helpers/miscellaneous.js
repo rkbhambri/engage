@@ -77,3 +77,19 @@ export const getDate = (timeStamp) => {
     );
     return updatedDate;
 };
+
+export const convertDateFormat = (date, customDateFormat) => {
+    date = new Date(date);
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+    if (customDateFormat) {
+        return `${day}/${month}/${date.getFullYear()}`
+    }
+    return `${date.getFullYear()}-${month}-${day}`;
+};
+
+export const convertToTimestamp = (date) => {
+    return new Date(date).getTime();
+};

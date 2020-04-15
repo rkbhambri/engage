@@ -2,6 +2,13 @@ import * as actionTypes from './actionTypes';
 import axios from '../../httpInstance/axios';
 import { userProfileUrl, socialUrl } from '../../url/Home';
 
+export const setSnackbarMessage = (message) => {
+    return {
+        type: actionTypes.SET_SNACKBAR_MESSAGE,
+        message
+    };
+};
+
 export const setUserDetails = (userDetails) => {
     return {
         type: actionTypes.SET_USER_DETAILS,
@@ -29,6 +36,9 @@ export const updateUserProfile = (profileDetails) => {
             .then(response => {
                 if (response.data.entity) {
                     dispatch(setUserDetails(response.data.entity));
+                    dispatch(setSnackbarMessage(response.data.message));
+                } else {
+                    dispatch(setSnackbarMessage(response.data.message));
                 }
             })
             .catch(error => {

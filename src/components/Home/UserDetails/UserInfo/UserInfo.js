@@ -1,11 +1,13 @@
 import React from 'react';
+import { convertDateFormat } from '../../../../helpers/miscellaneous';
 
 const UserInfo = (props) => {
     return (
         <>
-            <div>{props.userDetails.name}</div>
-            <div className="mt-2">{props.userDetails.email}</div>
-            <div className="mt-2">{props.userDetails.mobile || "xx-xxxxxxxxxx"}</div>
+            <div className="name">{props.userDetails.name}</div>
+            <div className="email mt-2">{props.userDetails.email}</div>
+            <div className="mobile mt-2">{props.userDetails.mobile || "xx-xxxxxxxxxx"}</div>
+            <div className="dob mt-2">{props.userDetails.dateOfBirth ? convertDateFormat(props.userDetails.dateOfBirth) : "dd-mm-yyyy"}</div>
         </>
     );
 };
