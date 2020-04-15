@@ -41,18 +41,41 @@ const AddCardForm = (props) => {
     }
 
     const [cardDetails, setCardDetails] = useState({
+        name: '',
         category: '',
-        // thumbnailId: '',
+        thumbnailId: '',
         facebookUrl: '',
         instagramUrl: '',
         linkedinUrl: '',
         tiktokUrl: '',
         youtubeChannelUrl: '',
+        twitterUrl: '',
+        snapchatUrl: '',
+        whatsappUrl: '',
+        githubUrl: '',
+        stackoverflowUrl: '',
+        dribbleUrl: '',
+        behanceUrl: '',
+        upiAddress: '',
+        paypalUrl: '',
+        upworkUrl: '',
+        fiverrUrl: '',
         isFacebookActive: false,
         isInstagramActive: false,
         isLinkedinActive: false,
         isTiktokActive: false,
-        isYoutubeChannelActive: false
+        isYoutubeChannelActive: false,
+        isTwitterActive: false,
+        isSnapchatActive: false,
+        isWhatsappActive: false,
+        isGithubActive: false,
+        isStackoverflowActive: false,
+        isDribbleActive: false,
+        isBehanceActive: false,
+        isUpiActive: false,
+        isPaypalActive: false,
+        isUpworkActive: false,
+        isFiverrActive: false
     });
     const [invalidInput, setInvalidInput] = useState({});
 
@@ -64,13 +87,10 @@ const AddCardForm = (props) => {
         if (isObjectNotEmpty(props.socialUrl)) {
             let updatedCardDetails = { ...cardDetails };
             for (let key in props.socialUrl) {
-                if (key.includes('Url')) {
-                    updatedCardDetails[key] = props.socialUrl[key];
+                if (key.includes('Url') || key.includes('Active')) {
+                    updatedCardDetails[key] = props.socialUrl[key] || '';
                 }
             }
-            // only for now
-            updatedCardDetails.thumbnailId = '';
-            updatedCardDetails.name = '';
             setCardDetails(updatedCardDetails);
         }
     }, [props.socialUrl]);

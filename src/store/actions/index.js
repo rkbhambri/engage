@@ -40,7 +40,8 @@ export {
 export {
     getCards,
     addCard,
-    emptyCards
+    emptyCards,
+    updateCardDetails
 } from './MyCards';
 
 export {

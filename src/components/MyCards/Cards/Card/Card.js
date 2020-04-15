@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'reactstrap';
+import { connect } from 'react-redux';
 import { GoBroadcast } from 'react-icons/go';
 import { Icon, Divider, Button } from 'semantic-ui-react';
 import './Card.css';
+import * as actionCreaters from '../../../../store/actions';
 import { socialMediaPlatforms } from '../../../../helpers/socialMedia';
 import { getCapitalizeText, parseData } from '../../../../helpers/miscellaneous';
 import SocialIcons from '../../../Home/SocialDetails/SocialIcons';
@@ -95,6 +97,8 @@ const Card = (props) => {
 
     const updateCardDetails = () => {
         setEditcardId(prevState => !prevState);
+        const { id, name, category, createdOn, ...details } = cardDetails;
+        props.onUpdateCardDetails(id, details);
     };
 
     return (
@@ -225,4 +229,10 @@ const Card = (props) => {
     );
 };
 
-export default Card;
+const mapDispatchToProps = dispatch => {
+    return {
+        onUpdateCardDetails: (cardId, cardDetails) => dispatch(actionCreaters.updateCardDetails(cardId, cardDetails))
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Card);

@@ -7,7 +7,7 @@ const Cards = (props) => {
             {
                 props.cards.map(item => {
                     return (
-                        <Card id="1" key={item.id} cardDetails={item} />
+                        <Card key={item.id} cardDetails={item} />
                     );
                 })
             }

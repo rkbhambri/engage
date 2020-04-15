@@ -74,6 +74,7 @@ export const updateSocialUrl = (socialPlatform) => {
             .then(response => {
                 if (response.data.entity) {
                     dispatch(setUserDetails(response.data.entity));
+                    dispatch(setSnackbarMessage(response.data.message));
                 }
             })
             .catch(error => {
