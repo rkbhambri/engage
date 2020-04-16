@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Col } from 'reactstrap';
 import * as actionCreaters from '../../../store/actions';
@@ -16,10 +16,6 @@ import './SocialDetails.css';
 
 const SocialDetails = (props) => {
 
-    useEffect(() => {
-        props.onGetSocialUrl();
-    }, []);
-
     const updateSocialUrl = (value, platform) => {
         const socialUrl = { ...props.socialUrl };
         socialUrl[platform] = value;
@@ -32,45 +28,45 @@ const SocialDetails = (props) => {
                 <SocialIcons
                     src={Dribble}
                     platform="dribble"
-                    value={props.socialUrl.dribbleUrl}
+                    value={props.socialUrl.dribbleUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'dribbleUrl')} />
                 <SocialIcons
                     src={Facebook}
                     platform="facebook"
-                    value={props.socialUrl.facebookUrl}
+                    value={props.socialUrl.facebookUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'facebookUrl')} />
                 <SocialIcons
                     src={Linkedin} platform="linkedin"
-                    value={props.socialUrl.linkedinUrl}
+                    value={props.socialUrl.linkedinUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'linkedinUrl')} />
             </Col>
             <Col className="d-flex justify-content-around p-3">
                 <SocialIcons
                     src={Behance}
                     platform="behance"
-                    value={props.socialUrl.behanceUrl}
+                    value={props.socialUrl.behanceUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'behanceUrl')} />
                 <SocialIcons
                     src={Instagram}
                     platform="instagram"
-                    value={props.socialUrl.instagramUrl}
+                    value={props.socialUrl.instagramUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'instagramUrl')} />
             </Col>
             <Col className="d-flex justify-content-between p-3">
                 <SocialIcons
                     src={Pinterest}
                     platform="pinterest"
-                    value={props.socialUrl.pinterestUrl}
+                    value={props.socialUrl.pinterestUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'pinterestUrl')} />
                 <SocialIcons
                     src={Twitter}
                     platform="twitter"
-                    value={props.socialUrl.twitterUrl}
+                    value={props.socialUrl.twitterUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'twitterUrl')} />
                 <SocialIcons
                     src={Youtube}
                     platform="youtubeChannel"
-                    value={props.socialUrl.youtubeChannelUrl}
+                    value={props.socialUrl.youtubeChannelUrl || ''}
                     updateSocialUrl={(value) => updateSocialUrl(value, 'youtubeChannelUrl')} />
             </Col>
         </Col>
@@ -86,7 +82,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGetSocialUrl: () => dispatch(actionCreaters.getSocialUrl()),
         onUpdateSocialUrl: (socialUrl) => dispatch(actionCreaters.updateSocialUrl(socialUrl))
     };
 };

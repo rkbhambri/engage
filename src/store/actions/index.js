@@ -39,6 +39,7 @@ export {
 
 export {
     getCards,
+    getSocialUrl,
     addCard,
     emptyCards,
     updateCardDetails
@@ -47,6 +48,5 @@ export {
 export {
     getUserProfile,
     updateUserProfile,
-    getSocialUrl,
     updateSocialUrl
 } from './Home';

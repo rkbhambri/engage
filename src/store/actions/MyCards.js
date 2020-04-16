@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../httpInstance/axios';
-import { cardsUrl, cardDetailsUrl } from '../../url/MyCards';
+import { cardsUrl, cardDetailsUrl, socialUrl } from '../../url/MyCards';
 
 export const setSnackbarMessage = (message) => {
     return {
@@ -35,6 +35,21 @@ export const getCards = () => {
             })
             .catch(error => {
                 dispatch(setSnackbarMessage('Something Went Wrong !!'));
+            });
+    };
+};
+
+
+export const getSocialUrl = () => {
+    return dispatch => {
+        axios.get(socialUrl())
+            .then(response => {
+                if (response.data.entity) {
+                    // dispatch(setSocialUrl(response.data.entity));
+                }
+            })
+            .catch(error => {
+
             });
     };
 };

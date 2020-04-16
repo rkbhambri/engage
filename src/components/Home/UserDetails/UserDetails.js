@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreaters from '../../../store/actions';
 import { Col } from 'reactstrap';
@@ -11,10 +11,6 @@ import './UserDetails.css';
 const UserDetails = (props) => {
 
     const [isUserDetailsEditable, setUserDetailsEditable] = useState(false);
-
-    useEffect(() => {
-        props.onGetUserProfile();
-    }, []);
 
     const toggleUserDetailsEditable = () => {
         setUserDetailsEditable(prevState => !prevState);
@@ -61,7 +57,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGetUserProfile: () => dispatch(actionCreaters.getUserProfile()),
         onUpdateUserProfile: (profileDetails) => dispatch(actionCreaters.updateUserProfile(profileDetails))
     };
 };

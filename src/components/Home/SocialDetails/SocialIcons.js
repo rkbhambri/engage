@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icon, Popup, Grid, Input, Image, Button } from 'semantic-ui-react'
 
 const SocialIcons = (props) => {
@@ -12,11 +12,16 @@ const SocialIcons = (props) => {
         twitter: 'Twitter url',
         youtubeChannel: 'Youtube channel url'
     });
-    const [url, setUrl] = useState('');
+    const [url, setUrl] = useState(props.value);
+
+    useEffect(() => {
+        setUrl(props.value);
+    }, [props.value]);
 
     const urlChangeHandler = (value) => {
         setUrl(value);
     };
+
     return (
         <Popup
             key={props.name}
@@ -37,7 +42,7 @@ const SocialIcons = (props) => {
                     className="border-bottom"
                     style={{ color: '#fff' }}
                     onChange={(event) => urlChangeHandler(event.target.value)}
-                    value={props.value || url}
+                    value={url}
                 />
                 <Icon name="check" style={{ color: 'green' }} className="ml-3" onClick={() => props.updateSocialUrl(url)}></Icon>
             </Grid.Column>

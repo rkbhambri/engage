@@ -8,3 +8,7 @@ export const cardsUrl = () => {
 export const cardDetailsUrl = (cardId) => {
     return `cards/${cardId}/details`;
 };
+
+export const socialUrl = () => {
+    return `users/${getItem('id')}/social`;
+};

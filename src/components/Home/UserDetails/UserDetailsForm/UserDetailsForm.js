@@ -3,7 +3,6 @@ import { Col } from 'reactstrap';
 import { Icon, Form } from 'semantic-ui-react';
 import { parseData, isEmpty, convertToTimestamp, convertDateFormat } from '../../../../helpers/miscellaneous';
 import { messages } from '../../../../helpers/messages';
-import { validateEmail } from '../../../../helpers/formHandling';
 import { isObjectEmpty } from '../../../../helpers/Object';
 // import './UserDetailsForm.css';
 
@@ -11,19 +10,17 @@ const UserDetailsForm = (props) => {
 
     const [formInput, setFormInput] = useState({
         name: '',
-        email: '',
         mobile: '',
         dateOfBirth: ''
     });
     const [invalidInput, setInvalidInput] = useState({});
 
     useEffect(() => {
-        const { name, email, mobile, dateOfBirth } = props.userDetails;
-        setFormInput({ name, email, mobile: mobile || '', dateOfBirth: dateOfBirth || '' });
+        const { name, mobile, dateOfBirth } = props.userDetails;
+        setFormInput({ name, mobile: mobile || '', dateOfBirth: convertDateFormat(new Date(dateOfBirth)) || '' });
         return (() => {
             setFormInput({
                 name: '',
-                email: '',
                 mobile: '',
                 dateOfBirth: ''
             });
@@ -45,12 +42,10 @@ const UserDetailsForm = (props) => {
     const saveUserDetails = () => {
         const invalidInputDetails = parseData(invalidInput);
 
-        if (isEmpty(formInput.name)) {
-            invalidInputDetails.name = messages.name;
-        }
-
-        if (!validateEmail(formInput.email)) {
-            invalidInputDetails.email = messages.invalidEmail;
+        for (let key in formInput) {
+            if (isEmpty(formInput[key].toString())) {
+                invalidInputDetails[key] = messages[key];
+            }
         }
 
         setInvalidInput(invalidInputDetails);
@@ -86,13 +81,9 @@ const UserDetailsForm = (props) => {
                 id="email"
                 className={`border-bottom mt-3 ${invalidInput.email && 'mb-0'}`}
                 style={{ color: '#fff' }}
-                onChange={(event) => formChangeHandler(event)}
-                value={formInput.email}
+                value={props.userDetails.email}
+                disabled
             />
-            {
-                invalidInput.email &&
-                <span className="text-danger">{invalidInput.email}</span>
-            }
             <Form.Input
                 type="text"
                 transparent
@@ -111,7 +102,7 @@ const UserDetailsForm = (props) => {
                 className="border-bottom mt-3"
                 style={{ color: '#fff' }}
                 onChange={(event) => formChangeHandler(event)}
-                value={convertDateFormat(formInput.dateOfBirth)}
+                value={formInput.dateOfBirth}
             />
             <Col className="save-user-details text-right mt-3" xs={10}>
                 <Icon name="save outline" className="save-icon" onClick={saveUserDetails} />
