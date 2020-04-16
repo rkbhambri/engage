@@ -39,7 +39,7 @@ const MyCards = (props) => {
                         onClick={() => toggleAddCardModal()} />
                 </Col>
             </Row>
-            <Cards cards={props.cards} />
+            <Cards cards={props.cards} userDetails={props.userDetails} />
             {/* <Transactions transactions={props.transactions} /> */}
         </Col>
     );
@@ -47,7 +47,8 @@ const MyCards = (props) => {
 
 const mapStateToProps = state => {
     return {
-        cards: state.myCards.cards
+        cards: state.myCards.cards,
+        userDetails: state.home.userDetails
     };
 };
 

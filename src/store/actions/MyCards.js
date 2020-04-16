@@ -23,12 +23,20 @@ export const setCards = (cards) => {
     };
 };
 
+export const setUserDetails = (userDetails) => {
+    return {
+        type: actionTypes.SET_USER_DETAILS,
+        userDetails
+    };
+};
+
 export const getCards = () => {
     return dispatch => {
         axios.get(cardsUrl())
             .then(response => {
                 if (response.data.entity) {
                     dispatch(setCards(response.data.entity.cards || []));
+                    dispatch(setUserDetails(response.data.entity.user));
                 } else {
                     dispatch(setSnackbarMessage(response.data.message));
                 }
@@ -39,13 +47,19 @@ export const getCards = () => {
     };
 };
 
+export const setSocialUrl = (socialUrl) => {
+    return {
+        type: actionTypes.SET_SOCIAL_URL,
+        socialUrl
+    };
+};
 
 export const getSocialUrl = () => {
     return dispatch => {
         axios.get(socialUrl())
             .then(response => {
                 if (response.data.entity) {
-                    // dispatch(setSocialUrl(response.data.entity));
+                    dispatch(setSocialUrl(response.data.entity));
                 }
             })
             .catch(error => {

@@ -12,6 +12,7 @@ const Home = (props) => {
 
     useEffect(() => {
         props.onGetUserProfile();
+        return (() => props.onEmptyUserProfile());
     }, []);
 
     console.log('===home====');
@@ -38,17 +39,10 @@ const Home = (props) => {
     );
 };
 
-
-// const mapStateToProps = state => {
-//     return {
-//         socialUrl: state.home.socialUrl
-//     };
-// };
-
 const mapDispatchToProps = dispatch => {
     return {
         onGetUserProfile: () => dispatch(actionCreaters.getUserProfile()),
-        onUpdateSocialUrl: (socialUrl) => dispatch(actionCreaters.updateSocialUrl(socialUrl))
+        onEmptyUserProfile: () => dispatch(actionCreaters.emptyUserProfile())
     };
 };
 

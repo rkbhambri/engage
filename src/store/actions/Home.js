@@ -17,11 +17,10 @@ export const setUserDetails = (userDetails) => {
     };
 };
 
-
-export const setSocialUrl = (socialUrl) => {
+export const setUserSocialUrl = (userSocialUrl) => {
     return {
-        type: actionTypes.SET_SOCIAL_URL,
-        socialUrl
+        type: actionTypes.SET_USER_SOCIAL_URL,
+        userSocialUrl
     };
 };
 
@@ -30,7 +29,7 @@ export const getUserProfile = () => {
         axios.get(userProfileUrl())
             .then(response => {
                 if (response.data.entity) {
-                    dispatch(setSocialUrl(response.data.entity.social));
+                    dispatch(setUserSocialUrl(response.data.entity.social));
                     dispatch(setUserDetails(response.data.entity.user));
                 }
             })
@@ -62,12 +61,18 @@ export const updateSocialUrl = (socialPlatform) => {
         axios.put(socialUrl(), socialPlatform)
             .then(response => {
                 if (response.data.entity) {
-                    dispatch(setSocialUrl(response.data.entity));
+                    dispatch(setUserSocialUrl(response.data.entity));
                     dispatch(setSnackbarMessage(response.data.message));
                 }
             })
             .catch(error => {
 
             });
+    };
+};
+
+export const emptyUserProfile = () => {
+    return {
+        type: actionTypes.EMPTY_USER_PROFILE
     };
 };

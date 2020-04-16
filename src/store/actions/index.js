@@ -47,6 +47,7 @@ export {
 
 export {
     getUserProfile,
+    emptyUserProfile,
     updateUserProfile,
     updateSocialUrl
 } from './Home';

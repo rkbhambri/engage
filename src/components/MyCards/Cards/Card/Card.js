@@ -66,7 +66,10 @@ const Card = (props) => {
     };
 
     useEffect(() => {
-        setCardDetails(props.cardDetails);
+        console.log('===', props.cardDetails);
+        const card = { ...props.cardDetails };
+        card.social.thumbnailId = ''
+        setCardDetails(card.social);
     }, [props.cardDetails]);
 
     const editCardDetails = (id) => {
@@ -97,14 +100,16 @@ const Card = (props) => {
 
     const updateCardDetails = () => {
         setEditcardId(prevState => !prevState);
-        const { id, name, category, createdOn, ...details } = cardDetails;
-        props.onUpdateCardDetails(id, details);
+        props.onUpdateCardDetails(props.cardDetails.id, cardDetails);
     };
 
     return (
         <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[cardDetails.category]})` }}>
+            <div className="text-center mt-1 font-weight-bold">
+                {props.cardDetails.category}
+            </div>
             <Col className="text-right mb-2">
-                <GoBroadcast className="mt-3" style={{ fontSize: '28px' }} />
+                <GoBroadcast className="mt-1" style={{ fontSize: '28px' }} />
                 <div className="text-center">
                     <div className="profile-pic">
                         <img
@@ -115,7 +120,7 @@ const Card = (props) => {
                         // onError={(event) => event.target.src = defaultUserImage}
                         />
                     </div>
-                    <div className="name mt-3">KARAMJIT DAS</div>
+                    <div className="name mt-3">{props.userDetails.name}</div>
                 </div>
             </Col>
             <Col

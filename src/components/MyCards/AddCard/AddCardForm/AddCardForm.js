@@ -85,12 +85,7 @@ const AddCardForm = (props) => {
 
     useEffect(() => {
         if (isObjectNotEmpty(props.socialUrl)) {
-            let updatedCardDetails = { ...cardDetails };
-            for (let key in props.socialUrl) {
-                if (key.includes('Url') || key.includes('Active')) {
-                    updatedCardDetails[key] = props.socialUrl[key] || '';
-                }
-            }
+            const updatedCardDetails = { ...cardDetails, ...props.socialUrl };
             setCardDetails(updatedCardDetails);
         }
     }, [props.socialUrl]);
@@ -137,7 +132,7 @@ const AddCardForm = (props) => {
     const isSocialUrlAdded = () => {
         let isUrlAdded = false;
         for (let key in cardDetails) {
-            if (key.includes('Active') && cardDetails[key]) {
+            if (cardDetails[key] === true) {
                 isUrlAdded = true;
             }
         }
@@ -208,7 +203,7 @@ const AddCardForm = (props) => {
 
 const mapStateToProps = state => {
     return {
-        socialUrl: state.home.socialUrl
+        socialUrl: state.myCards.socialUrl
     };
 };
 
