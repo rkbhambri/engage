@@ -104,7 +104,7 @@ const Card = (props) => {
     };
 
     return (
-        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[cardDetails.category]})` }}>
+        <div className="card mt-4" style={{ borderRadius: '15px', backgroundImage: `url(${cards[props.cardDetails.category]})` }}>
             <div className="text-center mt-1 font-weight-bold">
                 {props.cardDetails.category}
             </div>
