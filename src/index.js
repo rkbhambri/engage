@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-// import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 import App from './App';
 import Auth from './store/reducers/Auth';
 import Home from './store/reducers/Home';
@@ -61,4 +61,4 @@ const app = (
 )
 
 ReactDOM.render(app, document.getElementById('root'));
-// registerServiceWorker();
+serviceWorker.register();
