@@ -1,5 +1,5 @@
 // export const axiosBaseUrl = 'http://13.126.172.69:3000';
-export const axiosBaseUrl = process.env.NODE_ENV !== 'production' ? 'http://localhost:3002/' : 'https://90ec09e0.ngrok.io/';
+export const axiosBaseUrl = process.env.NODE_ENV !== 'production' ? 'http://localhost:3002/' : 'http://c6c684b2.ngrok.io/';
 // https://api.paisajeet.com/
 
 const appUrl = encodeURIComponent(process.env.NODE_ENV !== 'production' ? 'http://13.235.50.69:3000/' : 'http://api.league-app.com/');
