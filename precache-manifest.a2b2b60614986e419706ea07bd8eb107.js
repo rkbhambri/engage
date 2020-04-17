@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/engage/static/js/4.31b71341.chunk.js"
   },
   {
-    "revision": "17629a5dfe0d3c3946cf401e1895f091",
-    "url": "/engage/static/media/revicons.17629a5d.ttf"
+    "revision": "2feb69ccb596730c72920c6ba3e37ef8",
+    "url": "/engage/static/media/revicons.2feb69cc.eot"
   },
   {
     "revision": "60122700388c50abfb6e",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/engage/static/js/runtime~main.50b64a5b.js"
   },
   {
-    "revision": "2feb69ccb596730c72920c6ba3e37ef8",
-    "url": "/engage/static/media/revicons.2feb69cc.eot"
+    "revision": "17629a5dfe0d3c3946cf401e1895f091",
+    "url": "/engage/static/media/revicons.17629a5d.ttf"
   },
   {
     "revision": "07787f76ac1103b32043",
@@ -136,16 +136,16 @@ self.__precacheManifest = [
     "url": "/engage/static/media/brand-icons.a046592b.woff"
   },
   {
-    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
-    "url": "/engage/static/media/icons.b87b9ba5.ttf"
-  },
-  {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
     "url": "/engage/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
     "url": "/engage/static/media/icons.8e3c7f55.eot"
+  },
+  {
+    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
+    "url": "/engage/static/media/icons.b87b9ba5.ttf"
   },
   {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
