@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Icon, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { Col } from 'reactstrap';
+import ShareIcon from '../../../assets/Icons/share-icon.svg';
+import UserDefaultPic from '../../../assets/Icons/user-default.svg';
 import ShareCard from '../ShareCard/ShareCard';
 import './UsersAround.css';
 
@@ -35,20 +37,26 @@ const UsersAround = (props) => {
                     </div><br />
                 </>
             }
-
             {
                 props.direct &&
                 users.map(item => {
                     return (
                         <Col className="user d-flex justify-content-between mt-2 pt-2 pb-2 offset-2" xs={8} key={item}>
-                            <div className="as">
-                                <span><Icon name="user" className="user-icon" /></span>
+                            <div className="user-names pt-1">
+                                <span>
+                                    <img
+                                        src={UserDefaultPic}
+                                        alt="Not Available"
+                                    />
+                                </span>
                                 <span className="name pl-2">{item}</span>
                             </div>
-                            &nbsp;<Icon
-                                name="external share"
-                                style={{ fontSize: '1.2em', color: '#181b26' }}
-                                onClick={() => toggleShareModalOpen(false, item)} />
+                            <img
+                                src={ShareIcon}
+                                className="share"
+                                alt="Engaze"
+                                onClick={() => toggleShareModalOpen(false, item)}
+                            />
                         </Col>
                     );
                 })

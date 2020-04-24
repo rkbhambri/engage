@@ -5,11 +5,11 @@ import { Col } from 'reactstrap';
 import { GoBroadcast } from 'react-icons/go';
 import "react-multi-carousel/lib/styles.css";
 import Profile_pic from '../../../assets/img/user.svg';
-import Card1 from '../../../assets/Cards/Card-1.jpg';
-import Card2 from '../../../assets/Cards/Card-2.jpg';
-import Card3 from '../../../assets/Cards/Card-3.jpg';
-import Card4 from '../../../assets/Cards/Card-4.jpg';
-import Card5 from '../../../assets/Cards/Card-5.jpg';
+import Card1 from '../../../assets/Cards/Card-1.png';
+import Card2 from '../../../assets/Cards/Card-2.png';
+import Card3 from '../../../assets/Cards/Card-3.png';
+import Card4 from '../../../assets/Cards/Card-4.png';
+import Card5 from '../../../assets/Cards/Card-5.png';
 import Card6 from '../../../assets/Cards/Card-6.jpg';
 
 

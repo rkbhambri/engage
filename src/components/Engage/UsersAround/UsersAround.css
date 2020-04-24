@@ -19,6 +19,16 @@
     color: #393638;
 }
 
+.users-around .user .user-names img {
+    height: 26px;
+    width: 26px;
+}
+
+.users-around .user .share{
+    height: 30px;
+    width: 30px;
+}
+
 .users-around .user .name {
     font-size: 18px;
 }

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Col } from 'reactstrap';
 import * as actionCreaters from '../../store/actions';
-import EngazeIcon from '../../assets/Icons/engaze.svg';
+import EngazeIcon from '../../assets/Icons/engaze-icon.svg';
 import BroadcastIcon from '../../assets/Icons/broadcast.svg';
 import Cards from './Cards/Cards';
-import Card4 from '../../assets/Cards/Card-4.jpg';
+import Card4 from '../../assets/Cards/Card-4.png';
 import UsersAround from './UsersAround/UsersAround';
 import Loading from './Loading/Loading'
 import './Engage.css';
