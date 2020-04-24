@@ -1,14 +1,30 @@
 import Cookies from 'universal-cookie';
+import { isAndroid } from '../helpers/miscellaneous';
 
 const cookies = new Cookies();
 
 export const getItem = (key) => {
-    const meta = cookies.get('auth');
-    return meta && meta[key];
+    let meta = null;
+    if (isAndroid()) {
+        const auth = JSON.parse(localStorage.getItem('auth'));
+        if (auth && auth.hasOwnProperty(key)) {
+            meta = auth[key];
+        } else {
+            meta = JSON.parse(localStorage.getItem(key));
+        }
+    } else {
+        const auth = cookies.get('auth');
+        if (auth && auth.hasOwnProperty(key)) {
+            meta = auth[key];
+        } else {
+            meta = cookies.get(key);
+        }
+    }
+    return meta;
 };
 
 export const setItem = (key, value) => {
-    cookies.set(key, value, { path: '/' });
+    isAndroid() ? localStorage.setItem(key, JSON.stringify(value)) : cookies.set(key, value, { path: '/' });
 };
 
 export const removeItem = (key) => {
@@ -16,9 +32,13 @@ export const removeItem = (key) => {
 };
 
 export const clearItems = () => {
-    const allCookies = cookies.getAll();
-    for (let key in allCookies) {
-        cookies.remove(key, { path: '/' });
+    if (isAndroid()) {
+        localStorage.clear();
+    } else {
+        const allCookies = cookies.getAll();
+        for (let key in allCookies) {
+            cookies.remove(key, { path: '/' });
+        }
     }
 };
 

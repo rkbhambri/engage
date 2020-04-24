@@ -93,3 +93,11 @@ export const convertDateFormat = (date, customDateFormat) => {
 export const convertToTimestamp = (date) => {
     return new Date(date).getTime();
 };
+
+export const isAndroid = () => {
+    // var ua = navigator.userAgent;
+    return !navigator.userAgent.match(/Android/i);
+    // if (!(ua.match(/Android/i))) {
+    //     //this code will run only when there is any non-android client.
+    // }
+};
